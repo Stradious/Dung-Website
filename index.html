@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dung Ho is a mechanical engineering student building robotics, CAD, and rapid-prototyping projects." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Dung Ho | Mechanical Engineer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --ink: #0b0b0c;
+      --paper: #f4f2ed;
+      --white: #fff;
+      --muted: #706f6b;
+      --line: #dcd8d0;
+      --red: #c8102e;
+      --red-bright: #ff3658;
+      --max: 1180px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    .wrap {
+      width: min(calc(100% - 2.5rem), var(--max));
+      margin-inline: auto;
+    }
+
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      background: rgba(11,11,12,.82);
+      color: var(--white);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      font-size: .88rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: clamp(1rem, 3vw, 2rem);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,.68);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--white); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 100svh;
+      padding: 8.5rem 0 5rem;
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 48rem;
+      aspect-ratio: 1;
+      right: -24rem;
+      top: -18rem;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 50%;
+      box-shadow: 0 0 0 7rem rgba(255,255,255,.018), 0 0 0 14rem rgba(255,255,255,.012);
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: clamp(3rem, 7vw, 7rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: 0 0 1.25rem;
+      color: var(--red-bright);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 2px;
+      background: currentColor;
+      content: "";
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 1.5rem;
+      font-size: clamp(3.7rem, 9vw, 7.4rem);
+      font-weight: 850;
+      letter-spacing: -.065em;
+      line-height: .87;
+    }
+
+    h1 span { color: var(--red-bright); }
+
+    .hero-copy {
+      max-width: 610px;
+      margin-bottom: 2rem;
+      color: rgba(255,255,255,.62);
+      font-size: clamp(1rem, 2vw, 1.17rem);
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: .75rem 1.35rem;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .035em;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: var(--white); background: var(--red); }
+    .button-primary:hover { background: var(--red-bright); }
+    .button-ghost { color: var(--white); border-color: rgba(255,255,255,.3); }
+    .button-ghost:hover { border-color: var(--white); }
+    .button-dark { color: var(--white); background: var(--ink); }
+
+    .portrait-frame {
+      position: relative;
+      max-width: 420px;
+      margin-left: auto;
+    }
+
+    .portrait-frame::before {
+      position: absolute;
+      inset: -14px 14px 14px -14px;
+      z-index: 0;
+      border: 1px solid rgba(255,54,88,.65);
+      content: "";
+    }
+
+    .portrait-frame img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 20%;
+      filter: saturate(.88) contrast(1.04);
+    }
+
+    .portrait-note {
+      position: absolute;
+      right: -1rem;
+      bottom: 1.25rem;
+      z-index: 2;
+      padding: .55rem .8rem;
+      color: var(--ink);
+      background: var(--white);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    section { padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      margin-bottom: .65rem;
+      color: var(--red);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(2.3rem, 5vw, 4.25rem);
+      letter-spacing: -.055em;
+      line-height: .98;
+    }
+
+    .section-intro {
+      max-width: 540px;
+      margin: 0 0 .4rem auto;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .about { background: var(--white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: clamp(3rem, 8vw, 7rem);
+      align-items: start;
+    }
+
+    .about-copy p { color: var(--muted); font-size: 1.06rem; }
+    .about-copy strong { color: var(--ink); }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .stat {
+      min-height: 150px;
+      padding: 1.25rem;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stat-value {
+      margin-bottom: .25rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 850;
+      letter-spacing: -.06em;
+      line-height: 1;
+    }
+
+    .stat-value span { color: var(--red); }
+    .stat-label { color: var(--muted); font-size: .78rem; line-height: 1.45; }
+
+    .projects { color: var(--white); background: var(--ink); }
+    .projects .section-intro { color: rgba(255,255,255,.52); }
+    .projects .section-label { color: var(--red-bright); }
+
+    .featured-project {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      min-height: 500px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: #151517;
+    }
+
+    .project-visual {
+      position: relative;
+      min-height: 410px;
+      overflow: hidden;
+      background: #ddd;
+    }
+
+    .project-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .featured-project:hover .project-visual img { transform: scale(1.025); }
+
+    .project-index {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: .35rem .6rem;
+      color: var(--white);
+      background: rgba(11,11,12,.82);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .featured-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2rem, 5vw, 4rem);
+    }
+
+    .project-tag {
+      margin-bottom: .85rem;
+      color: var(--red-bright);
+      font-size: .68rem;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+      font-size: clamp(1.55rem, 3vw, 2.5rem);
+      letter-spacing: -.04em;
+      line-height: 1.08;
+    }
+
+    .project-copy { color: rgba(255,255,255,.56); font-size: .92rem; }
+
+    .file-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: 1.25rem;
+    }
+
+    .file-link {
+      padding: .48rem .7rem;
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.82);
+      font-size: .7rem;
+      font-weight: 750;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease;
+    }
+
+    .file-link:hover { color: var(--white); border-color: var(--red-bright); }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      min-height: 280px;
+      padding: clamp(1.6rem, 4vw, 2.5rem);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.035);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .project-card:hover { transform: translateY(-4px); border-color: rgba(255,54,88,.55); }
+    .project-card .project-copy { max-width: 500px; }
+
+    .award {
+      margin-top: 1.25rem;
+      color: #f4c95d;
+      font-size: .74rem;
+      font-weight: 750;
+    }
+
+    .experience { background: var(--paper); }
+    .timeline { max-width: 900px; border-top: 1px solid var(--line); }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline-date { color: var(--muted); font-size: .78rem; font-weight: 700; }
+    .timeline-org { color: var(--red); font-size: .7rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .timeline-title { margin: .2rem 0 .45rem; font-size: 1.15rem; font-weight: 800; }
+    .timeline-copy { margin: 0; color: var(--muted); font-size: .92rem; }
+
+    .credential { background: var(--white); }
+
+    .credential-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 1.25rem;
+      align-items: center;
+      max-width: 760px;
+      padding: 1.5rem;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+
+    .credential-card:hover { transform: translateY(-3px); border-color: var(--red); }
+    .credential-mark { color: var(--red); font-size: 1.8rem; font-weight: 850; }
+    .credential-issuer { color: var(--red); font-size: .68rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .credential-name { margin-top: .2rem; font-weight: 800; }
+    .credential-date { color: var(--muted); font-size: .78rem; }
+    .credential-arrow { font-size: 1.35rem; }
+
+    .contact { color: var(--white); background: var(--red); }
+    .contact-grid { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; }
+    .contact .section-label { color: rgba(255,255,255,.68); }
+    .contact h2 { max-width: 760px; }
+
+    footer {
+      padding: 1.35rem 0;
+      color: rgba(255,255,255,.42);
+      background: var(--ink);
+      font-size: .72rem;
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid, .section-head, .about-grid, .featured-project, .contact-grid { grid-template-columns: 1fr; }
+      .portrait-frame { width: min(78%, 400px); margin: 2rem auto 0; }
+      .section-intro { margin-left: 0; }
+      .featured-project { min-height: 0; }
+      .project-visual { min-height: 340px; }
+      .contact-grid { align-items: start; }
+    }
+
+    @media (max-width: 600px) {
+      .wrap { width: min(calc(100% - 1.5rem), var(--max)); }
+      .nav-links { gap: .85rem; }
+      .nav-links li:nth-child(2), .nav-links li:nth-child(3) { display: none; }
+      .hero { padding-top: 7.5rem; }
+      .project-grid { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: .4rem; }
+      .credential-card { grid-template-columns: auto 1fr; }
+      .credential-arrow { display: none; }
+      .portrait-note { right: -.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Primary navigation">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#top">Dung Ho</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Mechanical Engineering · University of Utah</p>
+          <h1>Dung<br><span>Ho.</span></h1>
+          <p class="hero-copy">Engineering student, robotics builder, and relentless CAD tinkerer. I design systems that move—from lunar robots to autonomous launchers and shop-floor prototypes.</p>
+          <div class="actions">
+            <a class="button button-primary" href="#projects">See selected work</a>
+            <a class="button button-ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="portrait-frame">
+          <img src="assets/dung-ho-portrait.webp" alt="Dung Ho wearing a suit and tie" />
+          <div class="portrait-note">Based in Utah</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="about" id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-label">About me</div>
+            <h2>Builder by nature.<br>Engineer by choice.</h2>
+          </div>
+          <p class="section-intro">I like the part of engineering where an idea stops being a sketch and starts becoming a physical thing you can test, break, and improve.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>I'm <strong>Dung Ho</strong>, a Mechanical Engineering student at the <strong>University of Utah College of Engineering</strong>. I'm a second-year MechE with senior standing by credits.</p>
+            <p>My interests sit at the intersection of <strong>robotics, autonomous systems, CAD, and rapid prototyping</strong>. Whether I'm programming MATLAB to communicate with an Arduino, refining a print-ready part, or preparing a robot for competition, I want to build something real.</p>
+            <p>Based in <strong>West Valley City, Utah</strong>.</p>
+          </div>
+          <div class="stats" aria-label="Highlights">
+            <div class="stat"><div class="stat-value">2<span>nd</span></div><div class="stat-label">ME-EN 1010 robotics competition</div></div>
+            <div class="stat"><div class="stat-value">CAD</div><div class="stat-label">SolidWorks design and simulation</div></div>
+            <div class="stat"><div class="stat-value">3D</div><div class="stat-label">Print preparation and rapid prototyping</div></div>
+            <div class="stat"><div class="stat-value">NASA</div><div class="stat-label">University of Utah Lunabotics team</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Selected projects</div>
+            <h2>Things I've built.</h2>
+          </div>
+          <p class="section-intro">A mix of mechanical design, embedded systems, and competition robotics—shown through the actual work.</p>
+        </div>
+
+        <article class="featured-project">
+          <div class="project-visual">
+            <img src="assets/vacuum-holder-cad.png" alt="CAD model of a vacuum holder and nozzle assembly" />
+            <div class="project-index">01 · Featured</div>
+          </div>
+          <div class="featured-copy">
+            <div class="project-tag">SolidWorks · Design iteration · 3D printing</div>
+            <h3>Vacuum Holder &amp; Nozzle Assembly</h3>
+            <p class="project-copy">Designed and iterated a compact holder around an existing vacuum-nozzle geometry, then prepared versions for additive-manufacturing tests. The workflow moved from native SolidWorks geometry to print-ready 3MF files for physical fit checks.</p>
+            <div class="file-links" aria-label="Project files">
+              <a class="file-link" href="assets/vacuum-holder-v7.3mf" download>3MF · V7 model</a>
+              <a class="file-link" href="assets/vacuum-holder-print-test.3mf" download>3MF · print test</a>
+              <a class="file-link" href="assets/qq-nozzle-part.SLDPRT" download>SLDPRT · nozzle part</a>
+            </div>
+          </div>
+        </article>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-tag">Robotics · Autonomous systems</div>
+            <h3>NASA Lunabotics Moon Rover</h3>
+            <p class="project-copy">Member of the University of Utah's Lunabotics team, designing and building an autonomous lunar excavation robot for competition at Kennedy Space Center.</p>
+          </article>
+          <article class="project-card">
+            <div class="project-tag">MATLAB · Arduino · Embedded systems</div>
+            <h3>Autonomous Precision Launcher</h3>
+            <p class="project-copy">Built and programmed a launcher that identifies targets, applies projectile-motion physics, and communicates from MATLAB to Arduino for real-time hardware control.</p>
+            <div class="award">2nd Place · ME-EN 1010 Final Competition</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Experience &amp; education</div>
+            <h2>Where I've been.</h2>
+          </div>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">Current</div>
+            <div>
+              <div class="timeline-org">Quick Quack Car Wash</div>
+              <div class="timeline-title">Team Member</div>
+              <p class="timeline-copy">Customer-facing operations role developing communication, reliability, and the ability to perform under pressure—skills that carry directly into engineering teamwork and field environments.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">2025—2029</div>
+            <div>
+              <div class="timeline-org">University of Utah · College of Engineering</div>
+              <div class="timeline-title">B.S. Mechanical Engineering</div>
+              <p class="timeline-copy">Coursework spanning CAD and simulation, dynamics, and embedded systems, with hands-on involvement in University of Utah Student Robotics and NASA Lunabotics.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="credential" id="credentials">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Credential</div>
+            <h2>Learning the tools.</h2>
+          </div>
+        </div>
+        <a class="credential-card" href="https://goengineer.thinkific.com/certificates/xjngnptmqs" target="_blank" rel="noopener noreferrer">
+          <div class="credential-mark">S</div>
+          <div>
+            <div class="credential-issuer">GoEngineer</div>
+            <div class="credential-name">Simulation Standard Course</div>
+            <div class="credential-date">Issued June 2026 · Credential xjngnptmqs</div>
+          </div>
+          <div class="credential-arrow" aria-hidden="true">↗</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="section-label">Contact</div>
+          <h2>Let's build something ambitious.</h2>
+        </div>
+        <div class="actions">
+          <a class="button button-dark" href="https://www.linkedin.com/in/dung-ho/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="button button-ghost" href="mailto:dungho.dth@gmail.com">Email me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">© 2026 Dung Ho · dungtriho.com</div></footer>
+</body>
+</html>

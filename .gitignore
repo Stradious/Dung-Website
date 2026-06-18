@@ -1,0 +1,9 @@
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+.codex/
+
+# These Stradious assets were accidentally copied into the Dung portfolio folder.
+assets/stradious-*
