@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Dung Ho is an R&amp;D mechanical engineer building robotics, CAD, and rapid-prototyping projects." />
+  <meta name="description" content="Dung Ho is an R&amp;D mechanical engineering intern building robotics, CAD, sustainable water-pump, and rapid-prototyping projects." />
   <meta name="theme-color" content="#0a0a0a" />
-  <title>Dung Ho | R&amp;D Mechanical Engineer</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>Dung Ho | R&amp;D Mechanical Engineering Intern</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
 
@@ -316,6 +317,34 @@
 
     .featured-project:hover .project-visual img { transform: scale(1.025); }
 
+    .project-gallery {
+      display: grid;
+      grid-template-rows: minmax(320px, 1fr) 118px;
+      gap: .55rem;
+      padding: .55rem;
+      background: #0b0b0c;
+    }
+
+    .project-gallery img {
+      height: auto;
+      min-height: 0;
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .project-gallery > img {
+      min-height: 320px;
+      aspect-ratio: 16 / 10;
+    }
+
+    .gallery-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .55rem;
+      min-height: 0;
+    }
+
+    .gallery-strip img { aspect-ratio: 4 / 3; }
+
     .project-index {
       position: absolute;
       top: 1rem;
@@ -395,6 +424,49 @@
       font-size: .74rem;
       font-weight: 750;
     }
+
+    .identity { background: var(--paper); }
+
+    .identity-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+
+    .identity-preview {
+      padding: clamp(.75rem, 2vw, 1.25rem);
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: 0 28px 70px rgba(11,11,12,.12);
+    }
+
+    .identity-preview img {
+      width: 100%;
+      border: 1px solid var(--line);
+    }
+
+    .identity-copy p { color: var(--muted); font-size: 1rem; }
+
+    .mark-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin: 1.4rem 0;
+      padding: 1rem 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mark-row img {
+      width: 62px;
+      height: 62px;
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .mark-row strong { display: block; line-height: 1.2; }
+    .mark-row span { color: var(--muted); font-size: .82rem; }
 
     .experience { background: var(--paper); }
     .timeline { max-width: 900px; border-top: 1px solid var(--line); }
@@ -547,11 +619,12 @@
     footer a:hover { color: var(--white); }
 
     @media (max-width: 850px) {
-      .hero-grid, .section-head, .about-grid, .featured-project, .contact-grid, .privacy-grid { grid-template-columns: 1fr; }
+      .hero-grid, .section-head, .about-grid, .featured-project, .identity-grid, .contact-grid, .privacy-grid { grid-template-columns: 1fr; }
       .portrait-frame { width: min(78%, 400px); margin: 2rem auto 0; }
       .section-intro { margin-left: 0; }
       .featured-project { min-height: 0; }
       .project-visual { min-height: 340px; }
+      .project-gallery { grid-template-rows: auto auto; }
       .contact-grid { align-items: start; }
     }
 
@@ -561,6 +634,7 @@
       .nav-links li:nth-child(2), .nav-links li:nth-child(3) { display: none; }
       .hero { padding-top: 7.5rem; }
       .project-grid { grid-template-columns: 1fr; }
+      .gallery-strip { grid-template-columns: repeat(2, 1fr); }
       .timeline-item { grid-template-columns: 1fr; gap: .4rem; }
       .credential-card { grid-template-columns: auto 1fr; }
       .credential-arrow { display: none; }
@@ -590,9 +664,9 @@
     <header class="hero" id="top">
       <div class="wrap hero-grid">
         <div>
-          <p class="eyebrow">R&amp;D Mechanical Engineer · University of Utah</p>
+          <p class="eyebrow">R&amp;D Mechanical Engineering Intern · University of Utah</p>
           <h1>Dung<br><span>Ho.</span></h1>
-          <p class="hero-copy">R&amp;D mechanical engineer, robotics builder, and relentless CAD tinkerer. I design systems that move—from lunar robots to autonomous launchers and shop-floor prototypes.</p>
+          <p class="hero-copy">R&amp;D mechanical engineering intern, robotics builder, and relentless CAD tinkerer focused on product development, aerospace-minded design, and prototypes that actually move.</p>
           <div class="actions">
             <a class="button button-primary" href="#projects">See selected work</a>
             <a class="button button-ghost" href="#contact">Get in touch</a>
@@ -616,8 +690,8 @@
         </div>
         <div class="about-grid">
           <div class="about-copy">
-            <p>I'm <strong>Dung Ho</strong>, an <strong>R&amp;D Mechanical Engineer</strong> and Mechanical Engineering student at the <strong>University of Utah College of Engineering</strong>. I'm a second-year MechE with senior standing by credits.</p>
-            <p>My interests sit at the intersection of <strong>robotics, autonomous systems, CAD, and rapid prototyping</strong>. Whether I'm programming MATLAB to communicate with an Arduino, refining a print-ready part, or preparing a robot for competition, I want to build something real.</p>
+            <p>I'm <strong>Dung Ho</strong>, an <strong>R&amp;D Mechanical Engineering Intern</strong> and Mechanical Engineering student at the <strong>University of Utah College of Engineering</strong>. I'm a second-year MechE with senior standing by credits.</p>
+            <p>My interests sit at the intersection of <strong>robotics, autonomous systems, aerospace, CAD, product development, and rapid prototyping</strong>. Whether I'm programming MATLAB to communicate with an Arduino, refining a print-ready part, or preparing a robot for competition, I want to build something real.</p>
             <p>Based in <strong>West Valley City, Utah</strong>.</p>
           </div>
           <div class="stats" aria-label="Highlights">
@@ -637,13 +711,36 @@
             <div class="section-label">Selected projects</div>
             <h2>Things I've built.</h2>
           </div>
-          <p class="section-intro">A mix of mechanical design, embedded systems, rapid prototyping, and competition robotics—shown through the actual work.</p>
+          <p class="section-intro">A mix of mechanical design, embedded systems, sustainable product development, rapid prototyping, and competition robotics—shown through the actual work.</p>
         </div>
+
+        <article class="featured-project">
+          <div class="project-visual project-gallery">
+            <img src="assets/water-pump-flow.jpg" alt="Sustainable water pump prototype moving water into a bucket during testing" />
+            <div class="gallery-strip" aria-label="Sustainable water pump project photos">
+              <img src="assets/water-pump-cad.jpg" alt="SolidWorks CAD for a water pump wheel attachment" />
+              <img src="assets/water-pump-testing.jpg" alt="Top-down test view of the pump system moving water" />
+              <img src="assets/water-pump-prototype.jpg" alt="Water pump prototype on a lab bench with printed red impellers" />
+              <img src="assets/water-pump-impeller-array.jpg" alt="Array of red 3D printed pump impellers" />
+            </div>
+            <div class="project-index">01 · Sustainable design</div>
+          </div>
+          <div class="featured-copy">
+            <div class="project-tag">Product development · Fluid systems · 3D printing</div>
+            <h3>Sustainable Water Pump Prototype</h3>
+            <p class="project-copy">Designed and tested a lab-scale water pump system using rapid-prototyped impellers, a driven wheel assembly, tubing, and an iterative test rig. The project moved from SolidWorks geometry to printed parts and wet testing, with flow behavior and manufacturability guiding each revision.</p>
+            <div class="file-links" aria-label="Project highlights">
+              <span class="file-link">SolidWorks CAD</span>
+              <span class="file-link">Printed impellers</span>
+              <span class="file-link">Live water testing</span>
+            </div>
+          </div>
+        </article>
 
         <article class="featured-project">
           <div class="project-visual">
             <img src="assets/vacuum-holder-cad.png" alt="CAD model of a vacuum holder and nozzle assembly" />
-            <div class="project-index">01 · Featured</div>
+            <div class="project-index">02 · Featured</div>
           </div>
           <div class="featured-copy">
             <div class="project-tag">SolidWorks · Design iteration · 3D printing</div>
@@ -685,6 +782,14 @@
           <article class="timeline-item">
             <div class="timeline-date">Current</div>
             <div>
+              <div class="timeline-org">R&amp;D Mechanical Engineering Intern</div>
+              <div class="timeline-title">Product Development &amp; Prototyping</div>
+              <p class="timeline-copy">Hands-on mechanical design work across CAD, 3D printing, testing, and prototype iteration, with an aerospace-minded focus on building useful hardware.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">Current</div>
+            <div>
               <div class="timeline-org">Quick Quack Car Wash</div>
               <div class="timeline-title">Team Member</div>
               <p class="timeline-copy">Customer-facing operations role developing communication, reliability, and the ability to perform under pressure—skills that carry directly into engineering teamwork and field environments.</p>
@@ -719,6 +824,30 @@
           </div>
           <div class="credential-arrow" aria-hidden="true">↗</div>
         </a>
+      </div>
+    </section>
+
+    <section class="identity" id="identity">
+      <div class="wrap identity-grid">
+        <div class="identity-preview">
+          <img src="assets/business-card-showcase.jpg" alt="Front and back design mockup of Dung Ho's mechanical engineering business card" />
+        </div>
+        <div class="identity-copy">
+          <div class="section-label">Identity</div>
+          <h2>Business card, but make it engineered.</h2>
+          <p>A sharper personal mark and business-card system built around the same visual language as the portfolio: black, white, red, CAD-line energy, and a clean QR/contact side for in-person networking.</p>
+          <div class="mark-row">
+            <img src="assets/favicon.svg" alt="DH monogram mark" />
+            <div>
+              <strong>DH monogram favicon</strong>
+              <span>Now used as the browser tab icon for the site.</span>
+            </div>
+          </div>
+          <div class="actions">
+            <a class="button button-primary" href="assets/business-card.pdf" target="_blank" rel="noopener noreferrer">View card PDF</a>
+            <a class="button button-dark" href="https://www.linkedin.com/in/dung-ho/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
       </div>
     </section>
 
