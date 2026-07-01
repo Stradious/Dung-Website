@@ -18,6 +18,7 @@
       --line: #dcd8d0;
       --red: #c8102e;
       --red-bright: #ff3658;
+      --gold: #f4c95d;
       --max: 1180px;
     }
 
@@ -25,6 +26,7 @@
 
     body {
       margin: 0;
+      overflow-x: hidden;
       color: var(--ink);
       background: var(--paper);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -90,7 +92,7 @@
     .hero {
       position: relative;
       overflow: hidden;
-      min-height: 100svh;
+      min-height: min(100svh, 900px);
       padding: 8.5rem 0 5rem;
       color: var(--white);
       background: var(--ink);
@@ -108,8 +110,23 @@
       box-shadow: 0 0 0 7rem rgba(255,255,255,.018), 0 0 0 14rem rgba(255,255,255,.012);
     }
 
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(116deg, transparent 0 58%, rgba(200,16,46,.18) 58% 58.45%, transparent 58.45% 100%),
+        linear-gradient(116deg, transparent 0 63%, rgba(244,201,93,.18) 63% 63.18%, transparent 63.18% 100%),
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size: auto, auto, 64px 64px, 64px 64px;
+      mask-image: linear-gradient(90deg, transparent, #000 24%, #000 100%);
+    }
+
     .hero-grid {
       position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: 1.15fr .85fr;
       gap: clamp(3rem, 7vw, 7rem);
@@ -117,6 +134,7 @@
     }
 
     .eyebrow {
+      position: relative;
       display: flex;
       align-items: center;
       gap: .75rem;
@@ -183,6 +201,9 @@
       position: relative;
       max-width: 420px;
       margin-left: auto;
+      padding: .65rem;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.035);
     }
 
     .portrait-frame::before {
@@ -190,6 +211,17 @@
       inset: -14px 14px 14px -14px;
       z-index: 0;
       border: 1px solid rgba(255,54,88,.65);
+      content: "";
+    }
+
+    .portrait-frame::after {
+      position: absolute;
+      right: -18px;
+      bottom: -12px;
+      z-index: 2;
+      width: 118px;
+      height: 8px;
+      background: linear-gradient(90deg, var(--red) 0 58%, var(--gold) 58% 76%, var(--white) 76% 100%);
       content: "";
     }
 
@@ -202,6 +234,30 @@
       object-position: center 20%;
       filter: saturate(.88) contrast(1.04);
     }
+
+    .hero-diagram {
+      position: absolute;
+      right: -58px;
+      top: 34px;
+      z-index: 2;
+      width: 172px;
+      height: 172px;
+      color: rgba(255,255,255,.58);
+      opacity: .76;
+      pointer-events: none;
+    }
+
+    .hero-diagram path,
+    .hero-diagram circle,
+    .hero-diagram line {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.4;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .hero-diagram .red-line { stroke: var(--red-bright); }
+    .hero-diagram .gold-line { stroke: var(--gold); }
 
     .portrait-note {
       position: absolute;
@@ -250,7 +306,22 @@
       font-size: 1rem;
     }
 
-    .about { background: var(--white); }
+    .about {
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .about::before {
+      content: "";
+      position: absolute;
+      right: -9rem;
+      top: 5rem;
+      width: 22rem;
+      height: 22rem;
+      border: 1px solid rgba(200,16,46,.18);
+      transform: rotate(18deg);
+    }
 
     .about-grid {
       display: grid;
@@ -263,17 +334,58 @@
     .about-copy strong { color: var(--ink); }
 
     .stats {
+      position: relative;
       display: grid;
       grid-template-columns: 1fr 1fr;
       border-top: 1px solid var(--line);
       border-left: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: 0 22px 60px rgba(11,11,12,.08);
+    }
+
+    .stats::before {
+      content: "";
+      position: absolute;
+      left: -14px;
+      top: -14px;
+      width: 70px;
+      height: 70px;
+      border-left: 5px solid var(--red);
+      border-top: 5px solid var(--gold);
+      pointer-events: none;
     }
 
     .stat {
+      position: relative;
+      overflow: hidden;
       min-height: 150px;
       padding: 1.25rem;
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(200,16,46,.045), transparent 48%),
+        var(--white);
+    }
+
+    .stat::after {
+      content: "";
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 42px;
+      height: 3px;
+      background: var(--red);
+    }
+
+    .stat:nth-child(2)::after,
+    .stat:nth-child(3)::after { background: var(--gold); }
+
+    .stat:nth-child(4)::after { width: 68px; }
+
+    .stat-value,
+    .stat-label {
+      position: relative;
+      z-index: 1;
     }
 
     .stat-value {
@@ -284,8 +396,134 @@
       line-height: 1;
     }
 
-    .stat-value span { color: var(--red); }
+    .stat-value .accent { color: var(--red); }
+    .stat-value .gold { color: var(--gold); }
     .stat-label { color: var(--muted); font-size: .78rem; line-height: 1.45; }
+
+    .build-story {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 1rem;
+      margin-top: clamp(3rem, 6vw, 5rem);
+    }
+
+    .build-photo,
+    .build-illustration {
+      position: relative;
+      margin: 0;
+      min-height: 260px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .build-photo.is-large { grid-row: span 2; min-height: 540px; }
+
+    .build-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.94) contrast(1.04);
+    }
+
+    .build-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, transparent 30%, rgba(11,11,12,.66)),
+        linear-gradient(120deg, rgba(200,16,46,.32), transparent 32%);
+      pointer-events: none;
+    }
+
+    .build-caption {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 1;
+      max-width: 560px;
+      padding-left: .9rem;
+      color: var(--white);
+      border-left: 4px solid var(--red-bright);
+    }
+
+    .caption-kicker {
+      margin-bottom: .35rem;
+      color: var(--gold);
+      font-size: .68rem;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .build-caption strong {
+      display: block;
+      font-size: clamp(1.4rem, 3vw, 2.45rem);
+      letter-spacing: -.045em;
+      line-height: 1;
+    }
+
+    .build-caption span {
+      display: block;
+      max-width: 440px;
+      margin-top: .45rem;
+      color: rgba(255,255,255,.72);
+      font-size: .88rem;
+      line-height: 1.45;
+    }
+
+    .build-illustration {
+      display: grid;
+      align-content: space-between;
+      gap: 1.25rem;
+      padding: clamp(1.25rem, 3vw, 1.8rem);
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(200,16,46,.18), transparent 34%),
+        var(--ink);
+    }
+
+    .build-illustration::after {
+      content: "";
+      position: absolute;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      width: 74px;
+      height: 7px;
+      background: linear-gradient(90deg, var(--red) 0 62%, var(--gold) 62% 78%, var(--white) 78% 100%);
+    }
+
+    .build-illustration svg {
+      width: 100%;
+      max-width: 300px;
+      color: rgba(255,255,255,.72);
+    }
+
+    .build-illustration path,
+    .build-illustration circle,
+    .build-illustration line,
+    .build-illustration rect {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .build-illustration .accent-line { stroke: var(--red-bright); }
+    .build-illustration .gold-line { stroke: var(--gold); }
+
+    .build-illustration h3 {
+      max-width: 360px;
+      margin-bottom: .45rem;
+    }
+
+    .build-illustration p {
+      max-width: 360px;
+      margin: 0;
+      color: rgba(255,255,255,.58);
+      font-size: .9rem;
+    }
 
     .proof { background: var(--paper); }
 
@@ -655,9 +893,10 @@
     footer a:hover { color: var(--white); }
 
     @media (max-width: 850px) {
-      .hero-grid, .section-head, .about-grid, .proof-grid, .featured-project, .identity-grid, .contact-grid, .privacy-grid { grid-template-columns: 1fr; }
+      .hero-grid, .section-head, .about-grid, .build-story, .proof-grid, .featured-project, .identity-grid, .contact-grid, .privacy-grid { grid-template-columns: 1fr; }
       .portrait-frame { width: min(78%, 400px); margin: 2rem auto 0; }
       .section-intro { margin-left: 0; }
+      .build-photo.is-large { grid-row: auto; min-height: 360px; }
       .featured-project { min-height: 0; }
       .project-visual { min-height: 340px; }
       .project-gallery { grid-template-rows: auto auto; }
@@ -665,16 +904,61 @@
     }
 
     @media (max-width: 600px) {
-      .wrap { width: min(calc(100% - 1.5rem), var(--max)); }
-      .nav-links { gap: .85rem; }
-      .nav-links li:nth-child(2), .nav-links li:nth-child(3) { display: none; }
+      .wrap {
+        width: calc(100% - 1.5rem);
+        max-width: var(--max);
+      }
+      .nav-inner { min-width: 0; gap: .75rem; }
+      .nav-links { min-width: 0; gap: .85rem; }
+      .nav-links li:nth-child(1), .nav-links li:nth-child(2), .nav-links li:nth-child(3) { display: none; }
       .hero { padding-top: 7.5rem; }
+      .hero .wrap {
+        width: 100%;
+        padding-inline: .75rem;
+      }
+      .hero-grid,
+      .hero-grid > * {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+      .eyebrow {
+        display: block;
+        max-width: 100%;
+        padding-left: 2rem;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+      }
+      .eyebrow::before {
+        position: absolute;
+        left: 0;
+        top: .62em;
+      }
+      .hero-copy {
+        width: 100%;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+      .portrait-frame {
+        width: 100%;
+        max-width: calc(100% - 3rem);
+      }
       .project-grid { grid-template-columns: 1fr; }
       .gallery-strip { grid-template-columns: repeat(2, 1fr); }
       .timeline-item { grid-template-columns: 1fr; gap: .4rem; }
       .credential-card { grid-template-columns: auto 1fr; }
       .credential-arrow { display: none; }
-      .portrait-note { right: -.5rem; }
+      .portrait-note {
+        right: .5rem;
+        max-width: calc(100% - 1rem);
+        font-size: .62rem;
+        white-space: nowrap;
+      }
+      .hero-diagram { right: -12px; width: 126px; height: 126px; }
+      .portrait-frame::after { right: 0; }
+      .build-photo,
+      .build-illustration { min-height: 320px; }
+      .build-caption { left: .85rem; right: .85rem; bottom: .85rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -709,6 +993,15 @@
           </div>
         </div>
         <div class="portrait-frame">
+          <svg class="hero-diagram" viewBox="0 0 160 160" aria-hidden="true">
+            <circle cx="94" cy="50" r="34" />
+            <circle cx="94" cy="50" r="10" />
+            <path d="M38 126 L94 50 L146 126 Z" />
+            <path class="red-line" d="M18 130 H132" />
+            <path class="gold-line" d="M30 108 L138 108" />
+            <line x1="94" y1="8" x2="94" y2="148" />
+            <line x1="18" y1="50" x2="150" y2="50" />
+          </svg>
           <img src="assets/dung-ho-portrait.webp" alt="Dung Ho wearing a suit and tie" />
           <div class="portrait-note">Based in Utah</div>
         </div>
@@ -732,11 +1025,48 @@
             <p>Based in <strong>West Valley City, Utah</strong>.</p>
           </div>
           <div class="stats" aria-label="Highlights">
-            <div class="stat"><div class="stat-value">3.9</div><div class="stat-label">University of Utah GPA · Dean's List</div></div>
-            <div class="stat"><div class="stat-value">4.0</div><div class="stat-label">High-school GPA · class valedictorian</div></div>
-            <div class="stat"><div class="stat-value">10M+</div><div class="stat-label">Content views across personal media</div></div>
-            <div class="stat"><div class="stat-value">NASA</div><div class="stat-label">Lunabotics mechanical sub-team</div></div>
+            <div class="stat"><div class="stat-value">2<span class="accent">nd</span></div><div class="stat-label">ME-EN 1010 robotics competition</div></div>
+            <div class="stat"><div class="stat-value">R<span class="accent">&amp;</span>D</div><div class="stat-label">Concept design, testing, and iteration</div></div>
+            <div class="stat"><div class="stat-value">3<span class="accent">D</span></div><div class="stat-label">Print preparation and rapid prototyping</div></div>
+            <div class="stat"><div class="stat-value">N<span class="accent">A</span>SA</div><div class="stat-label">University of Utah Lunabotics team</div></div>
           </div>
+        </div>
+        <div class="build-story" aria-label="Prototype photos and engineering illustration">
+          <figure class="build-photo is-large">
+            <img src="assets/quick-quack-prototypes.jpg" alt="Several black 3D printed Quick Quack nozzle prototype parts on a desk" />
+            <figcaption class="build-caption">
+              <span class="caption-kicker">Prototype loop</span>
+              <strong>Printed parts, fit checks, better hardware.</strong>
+              <span>Actual R&amp;D work means making the version in your head survive the desk, the car wash, and the next test.</span>
+            </figcaption>
+          </figure>
+          <article class="build-illustration">
+            <svg viewBox="0 0 320 210" aria-hidden="true">
+              <path d="M42 154 C72 98, 118 70, 170 82 C220 94, 242 138, 282 118" />
+              <path class="accent-line" d="M76 150 L162 104 L244 126" />
+              <circle cx="76" cy="150" r="10" />
+              <circle cx="162" cy="104" r="10" />
+              <circle cx="244" cy="126" r="10" />
+              <rect x="104" y="34" width="92" height="44" />
+              <line class="gold-line" x1="150" y1="78" x2="150" y2="128" />
+              <path d="M38 176 H286" />
+              <path d="M54 188 H126" />
+              <path d="M188 188 H272" />
+            </svg>
+            <div>
+              <div class="caption-kicker">Design loop</div>
+              <h3>Sketch, model, print, test.</h3>
+              <p>Recruiters should see a direct line from idea capture to modeled geometry, fabricated parts, field testing, and documentation.</p>
+            </div>
+          </article>
+          <figure class="build-photo">
+            <img src="assets/nozzle-sensor-sketch.jpg" alt="Hand-drawn sensing idea sketch for an automated nozzle docking concept" />
+            <figcaption class="build-caption">
+              <span class="caption-kicker">Idea capture</span>
+              <strong>Notes become systems.</strong>
+              <span>Quick sketches, sensor thinking, and practical constraints before the CAD gets polished.</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
