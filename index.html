@@ -737,6 +737,61 @@
     .mark-row strong { display: block; line-height: 1.2; }
     .mark-row span { color: var(--muted); font-size: .82rem; }
 
+    .community {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(200,16,46,.28), transparent 34%),
+        var(--ink);
+    }
+
+    .community::before {
+      content: "";
+      position: absolute;
+      inset: auto -8rem -8rem auto;
+      width: 24rem;
+      height: 24rem;
+      border: 1px solid rgba(244,201,93,.2);
+      transform: rotate(18deg);
+    }
+
+    .community-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr minmax(320px, 420px);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
+    }
+
+    .community-copy {
+      max-width: 720px;
+      color: rgba(255,255,255,.7);
+      font-size: 1.02rem;
+    }
+
+    .community-card {
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.045);
+      box-shadow: 0 24px 70px rgba(0,0,0,.22);
+    }
+
+    .community-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1.25rem;
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .community-row:last-child { border-bottom: 0; }
+    .community .section-label { color: var(--red-bright); }
+    .community-stat { font-size: 2.25rem; font-weight: 850; letter-spacing: -.06em; line-height: .95; }
+    .community-stat span { color: var(--gold); }
+    .community-row strong { display: block; margin-bottom: .25rem; }
+    .community-row p { margin: 0; color: rgba(255,255,255,.62); font-size: .84rem; line-height: 1.45; }
+
     .experience { background: var(--paper); }
     .timeline { max-width: 900px; border-top: 1px solid var(--line); }
 
@@ -893,7 +948,7 @@
     footer a:hover { color: var(--white); }
 
     @media (max-width: 850px) {
-      .hero-grid, .section-head, .about-grid, .build-story, .proof-grid, .featured-project, .identity-grid, .contact-grid, .privacy-grid { grid-template-columns: 1fr; }
+      .hero-grid, .section-head, .about-grid, .build-story, .proof-grid, .featured-project, .identity-grid, .community-grid, .contact-grid, .privacy-grid { grid-template-columns: 1fr; }
       .portrait-frame { width: min(78%, 400px); margin: 2rem auto 0; }
       .section-intro { margin-left: 0; }
       .build-photo.is-large { grid-row: auto; min-height: 360px; }
@@ -945,6 +1000,7 @@
       }
       .project-grid { grid-template-columns: 1fr; }
       .gallery-strip { grid-template-columns: repeat(2, 1fr); }
+      .community-row { grid-template-columns: 1fr; gap: .5rem; }
       .timeline-item { grid-template-columns: 1fr; gap: .4rem; }
       .credential-card { grid-template-columns: auto 1fr; }
       .credential-arrow { display: none; }
@@ -975,6 +1031,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="impact.html">Impact</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -1284,6 +1341,36 @@
       </div>
     </section>
 
+    <section class="community" id="community">
+      <div class="wrap community-grid">
+        <div>
+          <div class="section-label">Community impact</div>
+          <h2>Service that keeps showing up.</h2>
+          <p class="community-copy">Before engineering projects, there were school-wide drives, Eagle Scout service, and real people counting on follow-through. I built a dedicated page with direct donation links for causes I have worked around before: Make-A-Wish Utah and Ronald McDonald House Mountain West.</p>
+          <div class="actions">
+            <a class="button button-primary" href="impact.html">Open impact page</a>
+            <a class="button button-ghost" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer">Make-A-Wish Utah</a>
+          </div>
+        </div>
+        <div class="community-card" aria-label="Community service highlights">
+          <div class="community-row">
+            <div class="community-stat">$10K<span>x2</span></div>
+            <div>
+              <strong>Make-A-Wish school drives</strong>
+              <p>Student-government leadership helped rally two separate school-wide fundraising pushes.</p>
+            </div>
+          </div>
+          <div class="community-row">
+            <div class="community-stat">RMH<span>C</span></div>
+            <div>
+              <strong>Eagle Scout service</strong>
+              <p>Support connected to Ronald McDonald House work for families near medical care.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="contact" id="contact">
       <div class="wrap contact-grid">
         <div>
@@ -1350,7 +1437,7 @@
     </section>
   </main>
 
-  <footer><div class="wrap">© 2026 Dung Ho · dungtriho.com · <a href="privacy.html">Privacy</a></div></footer>
+  <footer><div class="wrap">© 2026 Dung Ho · dungtriho.com · <a href="impact.html">Impact</a> · <a href="privacy.html">Privacy</a></div></footer>
   <script>
     const leadForm = document.querySelector("[data-lead-form]");
 
