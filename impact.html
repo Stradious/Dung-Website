@@ -301,6 +301,81 @@
       font-size: 1rem;
     }
 
+    .receipts {
+      background: var(--paper);
+    }
+
+    .receipt-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 1rem;
+    }
+
+    .receipt-card {
+      display: grid;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      color: inherit;
+      background: var(--white);
+      text-decoration: none;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .receipt-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--red);
+    }
+
+    .receipt-card.is-wide {
+      grid-row: span 2;
+    }
+
+    .receipt-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 230px;
+      object-fit: cover;
+    }
+
+    .receipt-card.is-wide img {
+      min-height: 390px;
+      object-position: center;
+    }
+
+    .receipt-body {
+      padding: 1.2rem;
+    }
+
+    .receipt-kicker {
+      margin-bottom: .45rem;
+      color: var(--red);
+      font-size: .68rem;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .receipt-body h3 {
+      margin-bottom: .5rem;
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+      letter-spacing: -.045em;
+      line-height: 1.05;
+    }
+
+    .receipt-body p {
+      margin-bottom: .9rem;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .receipt-source {
+      color: var(--ink);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
     .causes { background: var(--white); }
 
     .cause-grid {
@@ -358,6 +433,55 @@
       font-weight: 800;
       letter-spacing: .06em;
       text-transform: uppercase;
+    }
+
+    .service {
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(200,16,46,.18), transparent 36%),
+        var(--ink);
+    }
+
+    .service .section-label { color: var(--red-bright); }
+    .service .section-intro { color: rgba(255,255,255,.66); }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .service-card {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.045);
+    }
+
+    .service-card.is-wide { grid-column: span 2; }
+
+    .service-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      filter: saturate(.92) contrast(1.04);
+    }
+
+    .service-card-body {
+      padding: 1rem;
+    }
+
+    .service-card h3 {
+      margin-bottom: .45rem;
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      letter-spacing: -.035em;
+      line-height: 1.08;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: rgba(255,255,255,.64);
+      font-size: .84rem;
+      line-height: 1.45;
     }
 
     .promise {
@@ -422,9 +546,11 @@
     footer a:hover { color: var(--white); }
 
     @media (max-width: 850px) {
-      .hero-grid, .section-head, .cause-grid, .promise-grid { grid-template-columns: 1fr; }
+      .hero-grid, .section-head, .receipt-grid, .cause-grid, .promise-grid { grid-template-columns: 1fr; }
       .section-intro { margin-left: 0; }
       .impact-visual { max-width: 580px; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .service-card.is-wide { grid-column: span 1; }
     }
 
     @media (max-width: 600px) {
@@ -449,6 +575,9 @@
       }
 
       .visual-stats { grid-template-columns: 1fr; }
+      .receipt-card.is-wide { grid-row: auto; }
+      .receipt-card.is-wide img { min-height: 260px; }
+      .service-grid { grid-template-columns: 1fr; }
       .cause-card { min-height: 0; }
       .cause-card::before { width: 56px; }
     }
@@ -478,7 +607,8 @@
         <div>
           <p class="eyebrow">Community impact</p>
           <h1>Building things should help <span>people.</span></h1>
-          <p class="hero-copy">Engineering taught me how to make ideas real. Service taught me why that matters. I have helped lead school-wide Make-A-Wish efforts that raised $10,000 twice, and I have supported Ronald McDonald House work through Eagle Scout service.</p>
+          <p class="hero-copy">Engineering taught me how to make ideas real. Service taught me why that matters. Through student-government leadership, I helped support school-wide Make-A-Wish efforts that cleared five figures twice, including documented totals above $12,000 and $13,433.</p>
+          <p class="hero-copy">My Eagle Scout project and other volunteer work also included park service, quilt tying, and food support connected to Ronald McDonald House programs near Primary Children's Hospital.</p>
           <p class="hero-copy">I am keeping that thread going by pointing visitors to causes I trust and have worked around before. If you want to help, donate directly through the official organization pages below.</p>
           <div class="actions">
             <a class="button button-primary" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer">Donate to Make-A-Wish Utah</a>
@@ -487,20 +617,61 @@
           <p class="disclaimer">Donation buttons leave this site and open official charity pages. This portfolio does not collect, process, or hold donations.</p>
         </div>
         <aside class="impact-visual" aria-label="Impact highlights">
-          <img src="assets/dung-ho-portrait.webp" alt="Dung Ho wearing a suit and tie" />
+          <img src="assets/wish-week-check-13433.jpg" alt="Hunter High School student leaders holding a Make-A-Wish Utah check for 13,433 dollars" />
           <div class="visual-stats">
             <div class="visual-stat">
-              <div class="visual-value">$10K<span>x2</span></div>
-              <p>Two school-wide Make-A-Wish fundraising pushes.</p>
+              <div class="visual-value">$13.4<span>K</span></div>
+              <p>Make-A-Wish Utah check photo from Hunter High School.</p>
             </div>
             <div class="visual-stat">
-              <div class="visual-value">RM<span>HC</span></div>
-              <p>Scout service experience connected to Ronald McDonald House support.</p>
+              <div class="visual-value">$12<span>K+</span></div>
+              <p>Additional Make-A-Wish Utah post documenting another fundraiser.</p>
             </div>
           </div>
         </aside>
       </div>
     </header>
+
+    <section class="receipts" id="receipts">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Receipts</div>
+            <h2>The proof helps.</h2>
+          </div>
+          <p class="section-intro">The point is not to flex service like a trophy. It is to make the story verifiable, grounded, and easy for someone else to trust.</p>
+        </div>
+        <div class="receipt-grid">
+          <a class="receipt-card is-wide" href="https://www.facebook.com/photo/?fbid=10159885149044292&amp;set=we-are-so-thankful-for-the-hard-work-that-hunter-high-school-put-in-to-raising-m" target="_blank" rel="noopener noreferrer">
+            <img src="assets/wish-week-check-13433.jpg" alt="Hunter High School students holding a Make-A-Wish Utah check for 13,433 dollars" />
+            <div class="receipt-body">
+              <div class="receipt-kicker">Make-A-Wish Utah</div>
+              <h3>Hunter High showed up for wish kids.</h3>
+              <p>A Make-A-Wish Utah Facebook post thanks Hunter High School for the work put into raising money, with school photos showing the $13,433 check.</p>
+              <span class="receipt-source">View Facebook post</span>
+            </div>
+          </a>
+          <a class="receipt-card" href="https://www.facebook.com/makeawishutah/posts/hunter-high-school-hosted-a-fundraiser-for-make-a-wish-utah-raising-over-12000-a/10160348707154292/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/wish-week-check-12000.jpg" alt="Family and Spider-Man characters beside a Hunter High School Make-A-Wish check" />
+            <div class="receipt-body">
+              <div class="receipt-kicker">Second fundraiser</div>
+              <h3>Another five-figure push.</h3>
+              <p>Make-A-Wish Utah documented Hunter High School hosting a fundraiser that raised over $12,000.</p>
+              <span class="receipt-source">View Facebook post</span>
+            </div>
+          </a>
+          <a class="receipt-card" href="https://www.facebook.com/makeawishutah/posts/hunter-high-school-hosted-a-fundraiser-for-make-a-wish-utah-raising-over-12000-a/10160348707154292/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/wish-week-group.jpg" alt="Hunter High School student group photo with a Make-A-Wish family and Spider-Man characters" />
+            <div class="receipt-body">
+              <div class="receipt-kicker">Student leadership</div>
+              <h3>Fundraising is coordination.</h3>
+              <p>Events like this take people, schedules, messaging, trust, and follow-through.</p>
+              <span class="receipt-source">View Facebook post</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <section class="causes" id="donate">
       <div class="wrap">
@@ -515,29 +686,107 @@
           <article class="cause-card">
             <div class="section-label">Make-A-Wish Utah</div>
             <h3>Wishes need people who can rally.</h3>
-            <p>In student-government president and vice-president roles, I helped organize school-wide fundraising for Make-A-Wish. We reached $10,000 twice as a school, which taught me that momentum, logistics, and clear asks can turn good intentions into real support.</p>
+            <p>In student-government president and vice-president roles, I helped organize school-wide fundraising for Make-A-Wish. The school cleared five figures twice, with Make-A-Wish Utah posts and photos supporting totals above $12,000 and $13,433.</p>
             <ul class="cause-meta" aria-label="Make-A-Wish connection">
-              <li>$10,000 raised twice</li>
+              <li>Five-figure drives</li>
               <li>Student leadership</li>
-              <li>Utah impact</li>
+              <li>Facebook proof links</li>
             </ul>
             <div class="actions">
               <a class="button button-primary" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer">Donate to Make-A-Wish Utah</a>
-              <a class="button button-dark" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer">Visit official site</a>
+              <a class="button button-dark" href="#receipts">See proof</a>
             </div>
           </article>
           <article class="cause-card">
             <div class="section-label">Ronald McDonald House</div>
             <h3>Families need practical help too.</h3>
-            <p>Through Eagle Scout service, I supported Ronald McDonald House efforts serving families near medical care. That kind of service is not abstract: it is meals, supplies, logistics, comfort, and showing up when families are under pressure.</p>
+            <p>Through Eagle Scout service and other volunteer projects, I supported work around Ronald McDonald House families: park service, quilt-making help, and meal support near Primary Children's Hospital. That kind of service is practical: supplies, logistics, comfort, and showing up.</p>
             <ul class="cause-meta" aria-label="Ronald McDonald House connection">
               <li>Eagle Scout service</li>
-              <li>Family support</li>
-              <li>Local mission</li>
+              <li>Quilt making</li>
+              <li>Meal support</li>
+              <li>Primary Children's</li>
             </ul>
             <div class="actions">
               <a class="button button-primary" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer">Donate to RMHC Mountain West</a>
-              <a class="button button-dark" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer">View giving options</a>
+              <a class="button button-dark" href="#service">See service photos</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="service" id="service">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Hands-on service</div>
+            <h2>Service happened in rooms like this.</h2>
+          </div>
+          <p class="section-intro">The photos matter because they show the actual shape of the work: getting people together, setting up supplies, making things, serving food, and leaving the place better than it started.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card is-wide">
+            <img src="assets/eagle-scout-park-cleanup.jpg" alt="Volunteers cleaning picnic tables at a park pavilion" />
+            <div class="service-card-body">
+              <h3>Eagle Scout project leadership</h3>
+              <p>Outdoor service work with volunteers, youth helpers, and a practical goal people could see by the end of the day.</p>
+            </div>
+          </article>
+          <article class="service-card is-wide">
+            <img src="assets/eagle-scout-quilt-tying.jpg" alt="Volunteers tying a handmade quilt inside a church room" />
+            <div class="service-card-body">
+              <h3>Quilt-making support</h3>
+              <p>Helped with volunteer quilt work: hands-on, repetitive, and exactly the kind of behind-the-scenes service families actually use.</p>
+            </div>
+          </article>
+          <article class="service-card is-wide">
+            <img src="assets/rmhc-meal-service.jpg" alt="Volunteers preparing food in a Ronald McDonald House kitchen space" />
+            <div class="service-card-body">
+              <h3>Meal support near care</h3>
+              <p>Food service support connected to Ronald McDonald House programs serving families near Primary Children's Hospital.</p>
+            </div>
+          </article>
+          <article class="service-card is-wide">
+            <img src="assets/rmhc-meal-supplies.jpg" alt="Bread and meal supplies prepared on a kitchen counter" />
+            <div class="service-card-body">
+              <h3>Small details count</h3>
+              <p>Meals are logistics, not just kindness: supplies, setup, cleanup, and enough food for the people walking in.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="causes" id="official">
+      <div class="wrap">
+        <div class="cause-grid">
+          <article class="cause-card">
+            <div class="section-label">Official pages</div>
+            <h3>Use the real donation pages.</h3>
+            <p>Donation links should go straight to the organizations. That keeps the money path clean, gives supporters official receipts, and avoids turning a portfolio into a middleman.</p>
+            <ul class="cause-meta" aria-label="Official donation links">
+              <li>Official pages</li>
+              <li>No middleman</li>
+              <li>Direct giving</li>
+            </ul>
+            <div class="actions">
+              <a class="button button-primary" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer">Make-A-Wish Utah</a>
+              <a class="button button-dark" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer">RMHC Mountain West</a>
+            </div>
+          </article>
+          <article class="cause-card">
+            <div class="section-label">Other volunteering</div>
+            <h3>Helping also means joining other people's work.</h3>
+            <p>Not every useful service project has my name on it. Some of the best work was joining other volunteers, doing the simple tasks well, and making sure the event or family-support effort actually got finished.</p>
+            <ul class="cause-meta" aria-label="Other volunteer work">
+              <li>Family support</li>
+              <li>Volunteer teams</li>
+              <li>Follow-through</li>
+            </ul>
+            <div class="actions">
+              <a class="button button-primary" href="index.html#contact">Contact me</a>
+              <a class="button button-dark" href="#service">See the work</a>
             </div>
           </article>
         </div>
