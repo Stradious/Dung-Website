@@ -777,6 +777,28 @@
       box-shadow: 0 24px 70px rgba(0,0,0,.22);
     }
 
+    .community-logo-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .community-logo-strip a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 62px;
+      padding: .65rem;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(11,11,12,.54);
+      text-decoration: none;
+    }
+
+    .community-logo-strip a.is-rmhc { background: var(--white); }
+    .community-logo-strip img { max-width: 100%; max-height: 42px; object-fit: contain; }
+
     .community-row {
       display: grid;
       grid-template-columns: 110px 1fr;
@@ -1353,6 +1375,14 @@
           </div>
         </div>
         <div class="community-card" aria-label="Community service highlights">
+          <div class="community-logo-strip" aria-label="Official organization links">
+            <a href="https://wish.org/utah" target="_blank" rel="noopener noreferrer" aria-label="Make-A-Wish Utah official site">
+              <img src="assets/logo-make-a-wish-utah.png" alt="Make-A-Wish Utah logo" />
+            </a>
+            <a class="is-rmhc" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer" aria-label="Ronald McDonald House Charities Mountain West official giving page">
+              <img src="assets/logo-rmhc-mountain-west.png" alt="Ronald McDonald House Charities Mountain West logo" />
+            </a>
+          </div>
           <div class="community-row">
             <div class="community-stat">$10K<span>+</span></div>
             <div>

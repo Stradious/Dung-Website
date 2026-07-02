@@ -207,6 +207,41 @@
       font-size: .82rem;
     }
 
+    .partner-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 1.25rem;
+    }
+
+    .partner-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: min(260px, 100%);
+      min-height: 78px;
+      padding: .9rem 1rem;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      text-decoration: none;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .partner-logo:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,54,88,.58);
+    }
+
+    .partner-logo.is-rmhc {
+      background: var(--white);
+    }
+
+    .partner-logo img {
+      max-width: 100%;
+      max-height: 58px;
+      object-fit: contain;
+    }
+
     .impact-visual {
       position: relative;
       padding: clamp(.85rem, 2vw, 1.25rem);
@@ -403,6 +438,28 @@
       width: 78px;
       height: 7px;
       background: linear-gradient(90deg, var(--red) 0 64%, var(--gold) 64% 82%, var(--ink) 82% 100%);
+    }
+
+    .cause-brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: min(310px, 100%);
+      min-height: 86px;
+      margin-bottom: 1.35rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line);
+      background: var(--ink);
+    }
+
+    .cause-brand.is-rmhc {
+      background: var(--white);
+    }
+
+    .cause-brand img {
+      max-width: 100%;
+      max-height: 64px;
+      object-fit: contain;
     }
 
     .cause-card h3 {
@@ -614,7 +671,15 @@
             <a class="button button-primary" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer">Donate to Make-A-Wish Utah</a>
             <a class="button button-ghost" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer">Donate to RMHC Mountain West</a>
           </div>
-          <p class="disclaimer">Donation buttons leave this site and open official charity pages. This portfolio does not collect, process, or hold donations.</p>
+          <div class="partner-logos" aria-label="Official organization links">
+            <a class="partner-logo" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer" aria-label="Make-A-Wish Utah official site">
+              <img src="assets/logo-make-a-wish-utah.png" alt="Make-A-Wish Utah logo" />
+            </a>
+            <a class="partner-logo is-rmhc" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer" aria-label="Ronald McDonald House Charities Mountain West official giving page">
+              <img src="assets/logo-rmhc-mountain-west.png" alt="Ronald McDonald House Charities Mountain West logo" />
+            </a>
+          </div>
+          <p class="disclaimer">Donation buttons and logos link to official charity pages. This portfolio is not an official campaign page and does not collect, process, or hold donations.</p>
         </div>
         <aside class="impact-visual" aria-label="Impact highlights">
           <img src="assets/wish-week-check-13433.jpg" alt="Hunter High School student leaders holding a Make-A-Wish Utah check for 13,433 dollars" />
@@ -684,6 +749,9 @@
         </div>
         <div class="cause-grid">
           <article class="cause-card">
+            <a class="cause-brand" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer" aria-label="Make-A-Wish Utah official site">
+              <img src="assets/logo-make-a-wish-utah.png" alt="Make-A-Wish Utah logo" />
+            </a>
             <div class="section-label">Make-A-Wish Utah</div>
             <h3>Wishes need people who can rally.</h3>
             <p>In student-government president and vice-president roles, I helped organize school-wide fundraising for Make-A-Wish. The school cleared five figures twice, with Make-A-Wish Utah posts and photos supporting totals above $12,000 and $13,433.</p>
@@ -698,6 +766,9 @@
             </div>
           </article>
           <article class="cause-card">
+            <a class="cause-brand is-rmhc" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer" aria-label="Ronald McDonald House Charities Mountain West official giving page">
+              <img src="assets/logo-rmhc-mountain-west.png" alt="Ronald McDonald House Charities Mountain West logo" />
+            </a>
             <div class="section-label">Ronald McDonald House</div>
             <h3>Families need practical help too.</h3>
             <p>Through Eagle Scout service and other volunteer projects, I supported work around Ronald McDonald House families: park service, quilt-making help, and meal support near Primary Children's Hospital. That kind of service is practical: supplies, logistics, comfort, and showing up.</p>
@@ -762,6 +833,9 @@
       <div class="wrap">
         <div class="cause-grid">
           <article class="cause-card">
+            <div class="cause-brand">
+              <img src="assets/logo-make-a-wish-utah.png" alt="Make-A-Wish Utah logo" />
+            </div>
             <div class="section-label">Official pages</div>
             <h3>Use the real donation pages.</h3>
             <p>Donation links should go straight to the organizations. That keeps the money path clean, gives supporters official receipts, and avoids turning a portfolio into a middleman.</p>
@@ -776,6 +850,9 @@
             </div>
           </article>
           <article class="cause-card">
+            <div class="cause-brand is-rmhc">
+              <img src="assets/logo-rmhc-mountain-west.png" alt="Ronald McDonald House Charities Mountain West logo" />
+            </div>
             <div class="section-label">Other volunteering</div>
             <h3>Helping also means joining other people's work.</h3>
             <p>Not every useful service project has my name on it. Some of the best work was joining other volunteers, doing the simple tasks well, and making sure the event or family-support effort actually got finished.</p>
@@ -799,7 +876,7 @@
           <div class="section-label">How I help</div>
           <h2>Service, but with follow-through.</h2>
           <p class="promise-copy">I am not an official charity representative, and this page is not pretending to be one. It is a clean place to send people when they ask what I care about and where they can help.</p>
-          <p class="official-note">For donation receipts, tax details, recurring gifts, employer matches, or campaign-specific questions, use the official pages linked above.</p>
+          <p class="official-note">For donation receipts, tax details, recurring gifts, employer matches, or campaign-specific questions, use the official pages linked above. Organization logos are used here only to identify the official donation links.</p>
         </div>
         <ul class="promise-list">
           <li><strong>Rally people clearly.</strong> Good fundraising works when the ask is simple, the goal is visible, and people understand where the money goes.</li>
