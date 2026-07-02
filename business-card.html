@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dung Ho Business Card</title>
+  <style>
+    :root {
+      --ink: #0b0b0c;
+      --paper: #f4f2ed;
+      --white: #ffffff;
+      --muted: #706f6b;
+      --line: #dcd8d0;
+      --red: #c8102e;
+      --red-bright: #ff3658;
+      --gold: #f4c95d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #e9e6df;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      gap: 28px;
+      padding: 36px;
+    }
+
+    .sheet {
+      display: grid;
+      grid-template-columns: repeat(2, 3.5in);
+      gap: .35in;
+      align-items: start;
+    }
+
+    .card-wrap {
+      display: grid;
+      gap: 10px;
+    }
+
+    .label {
+      color: #57534c;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .card {
+      position: relative;
+      width: 3.5in;
+      height: 2in;
+      overflow: hidden;
+      border: 1px solid rgba(11, 11, 12, .15);
+      border-radius: 0;
+      box-shadow: 0 22px 55px rgba(11, 11, 12, .18);
+    }
+
+    .front {
+      display: grid;
+      grid-template-columns: 1.12in 1fr;
+      color: var(--white);
+      background:
+        linear-gradient(112deg, rgba(255, 54, 88, .18), transparent 38%),
+        radial-gradient(circle at 92% 18%, rgba(244, 201, 93, .18), transparent 26%),
+        var(--ink);
+    }
+
+    .front::before {
+      content: "";
+      position: absolute;
+      inset: .18in .16in;
+      border: 1px solid rgba(255, 255, 255, .09);
+      pointer-events: none;
+    }
+
+    .photo-panel {
+      position: relative;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .photo-panel img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(.96) contrast(1.04);
+    }
+
+    .photo-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(11, 11, 12, 0) 42%, rgba(11, 11, 12, .38)),
+        linear-gradient(34deg, rgba(11, 11, 12, .32) 0 24%, transparent 24% 100%);
+      pointer-events: none;
+    }
+
+    .photo-panel::after {
+      content: "";
+      position: absolute;
+      top: -.18in;
+      right: -.12in;
+      width: .14in;
+      height: 2.36in;
+      background: var(--red);
+      transform: rotate(13deg);
+      transform-origin: center;
+      pointer-events: none;
+    }
+
+    .photo-cut {
+      position: absolute;
+      left: -.08in;
+      width: 1.42in;
+      transform: rotate(-34deg);
+      transform-origin: left center;
+      pointer-events: none;
+    }
+
+    .photo-cut.primary {
+      bottom: .08in;
+      height: 3px;
+      background: var(--red-bright);
+      box-shadow: 0 1px 0 rgba(11, 11, 12, .45);
+    }
+
+    .photo-cut.secondary {
+      bottom: .22in;
+      width: 1.28in;
+      height: 1px;
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .photo-cut.tertiary {
+      bottom: .34in;
+      width: 1.14in;
+      height: 1px;
+      background: rgba(244, 201, 93, .72);
+    }
+
+    .rail {
+      position: relative;
+      background: var(--red);
+    }
+
+    .rail::before,
+    .rail::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: .58in;
+      background: rgba(255, 255, 255, .5);
+    }
+
+    .rail::before {
+      top: .2in;
+    }
+
+    .rail::after {
+      bottom: .2in;
+    }
+
+    .monogram {
+      position: absolute;
+      left: .11in;
+      top: .82in;
+      width: .16in;
+      height: .36in;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 900;
+      line-height: .85;
+      letter-spacing: 0;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+
+    .front-content {
+      position: relative;
+      display: grid;
+      align-content: space-between;
+      padding: .27in .28in .23in .28in;
+    }
+
+    .eyebrow {
+      color: var(--red-bright);
+      font-size: 7.4px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .name {
+      margin: .03in 0 0;
+      min-height: .65in;
+      color: var(--white);
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1.08;
+    }
+
+    .name span {
+      color: var(--red-bright);
+    }
+
+    .role {
+      max-width: 1.9in;
+      margin: .13in 0 0;
+      color: rgba(255, 255, 255, .68);
+      font-size: 8.8px;
+      font-weight: 650;
+      line-height: 1.42;
+    }
+
+    .front-bottom {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .16in;
+      align-items: end;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      padding: 4px 6px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      color: rgba(255, 255, 255, .82);
+      font-size: 5.8px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .corner-number {
+      color: rgba(255, 255, 255, .36);
+      font-size: 8px;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .cad-lines {
+      position: absolute;
+      right: -.14in;
+      top: -.08in;
+      width: 1.45in;
+      height: 1.45in;
+      opacity: .28;
+    }
+
+    .cad-lines line,
+    .cad-lines path,
+    .cad-lines circle {
+      fill: none;
+      stroke: var(--white);
+      stroke-width: 1.3;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .back {
+      display: grid;
+      grid-template-columns: 1.13in 1fr;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, var(--paper) 0 1.13in, var(--white) 1.13in 100%);
+    }
+
+    .back::before {
+      content: "";
+      position: absolute;
+      inset: .15in;
+      border: 1px solid var(--line);
+      pointer-events: none;
+    }
+
+    .back-mark {
+      position: relative;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: .055in;
+      padding: .14in .1in;
+      border-right: 1px solid var(--line);
+    }
+
+    .qr-code {
+      display: block;
+      width: .62in;
+      height: .62in;
+      background: var(--white);
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+
+    .mark-box {
+      position: relative;
+      width: .58in;
+      height: .58in;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--ink);
+      color: var(--ink);
+      font-size: 23px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+
+    .mark-box::before,
+    .mark-box::after {
+      content: "";
+      position: absolute;
+      background: var(--red);
+    }
+
+    .mark-box::before {
+      width: .17in;
+      height: 3px;
+      right: -.1in;
+      top: .13in;
+    }
+
+    .mark-box::after {
+      width: 3px;
+      height: .17in;
+      left: .13in;
+      bottom: -.1in;
+    }
+
+    .back-mark small {
+      color: var(--red);
+      font-size: 6.8px;
+      font-weight: 850;
+      letter-spacing: .1em;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .back-content {
+      position: relative;
+      display: grid;
+      align-content: center;
+      gap: .09in;
+      padding: .22in .24in .2in .22in;
+    }
+
+    .contact-line {
+      display: grid;
+      gap: 3px;
+    }
+
+    .contact-label {
+      color: var(--red);
+      font-size: 7px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      color: var(--ink);
+      font-size: 9.6px;
+      font-weight: 750;
+      line-height: 1.2;
+      text-decoration: none;
+    }
+
+    .contact-meta {
+      max-width: 1.72in;
+      color: var(--muted);
+      font-size: 6.8px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .back-accent {
+      position: absolute;
+      right: .18in;
+      bottom: .16in;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .back-accent span {
+      display: block;
+      width: 4px;
+      height: 4px;
+      background: var(--red);
+    }
+
+    .back-accent span:nth-child(2) {
+      background: var(--ink);
+    }
+
+    .back-accent span:nth-child(3) {
+      background: var(--gold);
+    }
+
+    @media print {
+      @page {
+        size: letter;
+        margin: .5in;
+      }
+
+      body {
+        background: var(--white);
+      }
+
+      main {
+        display: block;
+        min-height: auto;
+        padding: 0;
+      }
+
+      .sheet {
+        gap: .25in;
+      }
+
+      .label {
+        display: none;
+      }
+
+      .card {
+        box-shadow: none;
+        break-inside: avoid;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+
+    @media screen and (max-width: 760px) {
+      main {
+        align-content: start;
+        padding: 24px 12px;
+      }
+
+      .sheet {
+        grid-template-columns: 1fr;
+        width: min(100%, 3.5in);
+      }
+
+      .card-wrap {
+        width: 100%;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main aria-label="Business card design for Dung Ho">
+    <section class="sheet">
+      <div class="card-wrap">
+        <div class="label">Front</div>
+        <article class="card front" aria-label="Business card front">
+          <div class="photo-panel" aria-hidden="true">
+            <img src="assets/business-card-headshot.jpg" alt="" />
+            <span class="photo-cut primary"></span>
+            <span class="photo-cut secondary"></span>
+            <span class="photo-cut tertiary"></span>
+          </div>
+          <svg class="cad-lines" viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="70" cy="42" r="28" />
+            <circle cx="70" cy="42" r="9" />
+            <path d="M24 88 L70 42 L112 88 Z" />
+            <path d="M24 88 H112" />
+            <line x1="70" y1="4" x2="70" y2="112" />
+            <line x1="10" y1="42" x2="118" y2="42" />
+          </svg>
+          <div class="front-content">
+            <div>
+              <div class="eyebrow">R&amp;D Mechanical Engineering</div>
+              <h1 class="name">Dung<br><span>Ho.</span></h1>
+              <p class="role">University of Utah MechE '29 · Aerospace + Computer Science</p>
+            </div>
+            <div class="front-bottom">
+              <div class="tags" aria-label="Focus areas">
+                <span class="tag">SolidWorks</span>
+                <span class="tag">Prototyping</span>
+                <span class="tag">Product Dev</span>
+                <span class="tag">Robotics</span>
+              </div>
+              <div class="corner-number">2029</div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="card-wrap">
+        <div class="label">Back</div>
+        <article class="card back" aria-label="Business card back">
+          <aside class="back-mark">
+            <div class="mark-box" aria-hidden="true">DH</div>
+            <img class="qr-code" src="assets/dungtriho-qr.png" alt="QR code linking to dungtriho.com" />
+            <small>Scan me!</small>
+          </aside>
+          <div class="back-content">
+            <div class="contact-line">
+              <div class="contact-label">Mobile</div>
+              <a class="contact-value" href="tel:+13854249193">385-424-9193</a>
+            </div>
+            <div class="contact-line">
+              <div class="contact-label">Email</div>
+              <a class="contact-value" href="mailto:dth.dungho@gmail.com">dth.dungho@gmail.com</a>
+            </div>
+            <div class="contact-line">
+              <div class="contact-label">LinkedIn</div>
+              <a class="contact-value" href="https://www.linkedin.com/in/dung-ho/">linkedin.com/in/dung-ho</a>
+            </div>
+            <div class="contact-line">
+              <div class="contact-label">Focus</div>
+              <p class="contact-meta">Mechanical design · CAD · rapid prototyping</p>
+            </div>
+            <div class="contact-line">
+              <div class="contact-label">Toolkit</div>
+              <p class="contact-meta">CSWA · SolidWorks · MATLAB · Arduino · 3D printing</p>
+            </div>
+          </div>
+          <div class="back-accent" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

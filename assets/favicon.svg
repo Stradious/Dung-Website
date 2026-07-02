@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DH">
+  <rect width="64" height="64" fill="#f4f2ed"/>
+  <rect x="12" y="9" width="40" height="46" fill="none" stroke="#0b0b0c" stroke-width="3.5"/>
+  <path d="M45 22h12" stroke="#c8102e" stroke-width="4" stroke-linecap="square"/>
+  <path d="M24 49v12" stroke="#c8102e" stroke-width="4" stroke-linecap="square"/>
+  <text x="32" y="39" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="19" font-weight="900" fill="#0b0b0c">DH</text>
+</svg>
