@@ -19,6 +19,9 @@
       --red: #c8102e;
       --red-bright: #ff3658;
       --gold: #f4c95d;
+      --wish-blue: #0072ce;
+      --wish-blue-dark: #004b8d;
+      --wish-blue-soft: #eaf5ff;
       --max: 1180px;
     }
 
@@ -116,7 +119,8 @@
       inset: 0;
       pointer-events: none;
       background:
-        linear-gradient(116deg, transparent 0 58%, rgba(200,16,46,.2) 58% 58.45%, transparent 58.45% 100%),
+        linear-gradient(116deg, transparent 0 56%, rgba(0,114,206,.24) 56% 56.42%, transparent 56.42% 100%),
+        linear-gradient(116deg, transparent 0 58%, rgba(200,16,46,.18) 58% 58.32%, transparent 58.32% 100%),
         linear-gradient(116deg, transparent 0 63%, rgba(244,201,93,.2) 63% 63.18%, transparent 63.18% 100%),
         linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
@@ -138,7 +142,7 @@
       align-items: center;
       gap: .75rem;
       margin: 0 0 1.2rem;
-      color: var(--red-bright);
+      color: #70b8ff;
       font-size: .72rem;
       font-weight: 850;
       letter-spacing: .14em;
@@ -163,7 +167,7 @@
       line-height: .88;
     }
 
-    h1 span { color: var(--red-bright); }
+    h1 span { color: #70b8ff; }
 
     .hero-copy {
       max-width: 670px;
@@ -194,8 +198,8 @@
     }
 
     .button:hover { transform: translateY(-2px); }
-    .button-primary { color: var(--white); background: var(--red); }
-    .button-primary:hover { background: var(--red-bright); }
+    .button-primary { color: var(--white); background: var(--wish-blue); }
+    .button-primary:hover { background: var(--wish-blue-dark); }
     .button-dark { color: var(--white); background: var(--ink); }
     .button-ghost { color: var(--white); border-color: rgba(255,255,255,.3); }
     .button-ghost:hover { border-color: var(--white); }
@@ -229,7 +233,7 @@
 
     .partner-logo:hover {
       transform: translateY(-2px);
-      border-color: rgba(255,54,88,.58);
+      border-color: rgba(112,184,255,.74);
     }
 
     .partner-logo.is-rmhc {
@@ -300,7 +304,7 @@
       line-height: 1;
     }
 
-    .visual-value span { color: var(--gold); }
+    .visual-value span { color: #70b8ff; }
     .visual-stat p { margin: 0; color: rgba(255,255,255,.62); font-size: .8rem; line-height: 1.42; }
 
     section { padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
@@ -337,7 +341,9 @@
     }
 
     .receipts {
-      background: var(--paper);
+      background:
+        linear-gradient(135deg, rgba(0,114,206,.09), transparent 38%),
+        var(--paper);
     }
 
     .receipt-grid {
@@ -358,7 +364,7 @@
 
     .receipt-card:hover {
       transform: translateY(-4px);
-      border-color: var(--red);
+      border-color: var(--wish-blue);
     }
 
     .receipt-card.is-wide {
@@ -383,7 +389,7 @@
 
     .receipt-kicker {
       margin-bottom: .45rem;
-      color: var(--red);
+      color: var(--wish-blue);
       font-size: .68rem;
       font-weight: 850;
       letter-spacing: .12em;
@@ -404,14 +410,17 @@
     }
 
     .receipt-source {
-      color: var(--ink);
+      color: var(--wish-blue-dark);
       font-size: .72rem;
       font-weight: 850;
       letter-spacing: .08em;
       text-transform: uppercase;
     }
 
-    .causes { background: var(--white); }
+    .causes {
+      background:
+        linear-gradient(180deg, var(--white), #f9fcff);
+    }
 
     .cause-grid {
       display: grid;
@@ -426,7 +435,7 @@
       padding: clamp(1.6rem, 4vw, 2.5rem);
       border: 1px solid var(--line);
       background:
-        linear-gradient(135deg, rgba(200,16,46,.055), transparent 42%),
+        linear-gradient(135deg, rgba(0,114,206,.08), transparent 42%),
         var(--paper);
     }
 
@@ -437,7 +446,7 @@
       right: 1.5rem;
       width: 78px;
       height: 7px;
-      background: linear-gradient(90deg, var(--red) 0 64%, var(--gold) 64% 82%, var(--ink) 82% 100%);
+      background: linear-gradient(90deg, var(--wish-blue) 0 48%, var(--red) 48% 70%, var(--gold) 70% 86%, var(--ink) 86% 100%);
     }
 
     .cause-brand {
@@ -485,7 +494,7 @@
       padding: .46rem .68rem;
       border: 1px solid var(--line);
       color: var(--ink);
-      background: rgba(255,255,255,.52);
+      background: rgba(234,245,255,.72);
       font-size: .7rem;
       font-weight: 800;
       letter-spacing: .06em;
@@ -495,11 +504,11 @@
     .service {
       color: var(--white);
       background:
-        linear-gradient(135deg, rgba(200,16,46,.18), transparent 36%),
+        linear-gradient(135deg, rgba(0,114,206,.26), transparent 36%),
         var(--ink);
     }
 
-    .service .section-label { color: var(--red-bright); }
+    .service .section-label { color: #70b8ff; }
     .service .section-intro { color: rgba(255,255,255,.66); }
 
     .service-grid {
@@ -545,7 +554,8 @@
       color: var(--white);
       background:
         linear-gradient(135deg, rgba(244,201,93,.16), transparent 32%),
-        var(--red);
+        linear-gradient(118deg, transparent 0 70%, rgba(200,16,46,.28) 70% 70.5%, transparent 70.5% 100%),
+        var(--wish-blue-dark);
     }
 
     .promise-grid {
@@ -663,10 +673,10 @@
       <div class="wrap hero-grid">
         <div>
           <p class="eyebrow">Community impact</p>
-          <h1>Building things should help <span>people.</span></h1>
-          <p class="hero-copy">Engineering taught me how to make ideas real. Service taught me why that matters. Through student-government leadership, I helped support school-wide Make-A-Wish efforts that cleared five figures twice, including documented totals above $12,000 and $13,433.</p>
+          <h1>People show up. <span>Wishes get closer.</span></h1>
+          <p class="hero-copy">Some of the best work I have been part of happened with a whole school or volunteer room pulling in the same direction. Through student-government leadership, I helped support school-wide Make-A-Wish efforts that cleared five figures twice, including totals above $12,000 and $13,433.</p>
           <p class="hero-copy">My Eagle Scout project and other volunteer work also included park service, quilt tying, and food support connected to Ronald McDonald House programs near Primary Children's Hospital.</p>
-          <p class="hero-copy">I am keeping that thread going by pointing visitors to causes I trust and have worked around before. If you want to help, donate directly through the official organization pages below.</p>
+          <p class="hero-copy">This page keeps those efforts connected to official places to give, with photos and posts that show the community behind them.</p>
           <div class="actions">
             <a class="button button-primary" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer">Donate to Make-A-Wish Utah</a>
             <a class="button button-ghost" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer">Donate to RMHC Mountain West</a>
@@ -679,7 +689,7 @@
               <img src="assets/logo-rmhc-mountain-west.png" alt="Ronald McDonald House Charities Mountain West logo" />
             </a>
           </div>
-          <p class="disclaimer">Donation buttons and logos link to official charity pages. This portfolio is not an official campaign page and does not collect, process, or hold donations.</p>
+          <p class="disclaimer">Donation buttons and logos link to official charity pages. This personal portfolio page does not collect, process, or hold donations.</p>
         </div>
         <aside class="impact-visual" aria-label="Impact highlights">
           <img src="assets/wish-week-check-13433.jpg" alt="Hunter High School student leaders holding a Make-A-Wish Utah check for 13,433 dollars" />
@@ -697,14 +707,14 @@
       </div>
     </header>
 
-    <section class="receipts" id="receipts">
+    <section class="receipts" id="moments">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <div class="section-label">Receipts</div>
-            <h2>The proof helps.</h2>
+            <div class="section-label">Community moments</div>
+            <h2>The community showed up.</h2>
           </div>
-          <p class="section-intro">The point is not to flex service like a trophy. It is to make the story verifiable, grounded, and easy for someone else to trust.</p>
+          <p class="section-intro">The numbers matter, but the better part is seeing students, families, volunteers, and a whole school choose to care about the same thing for a while.</p>
         </div>
         <div class="receipt-grid">
           <a class="receipt-card is-wide" href="https://www.facebook.com/photo/?fbid=10159885149044292&amp;set=we-are-so-thankful-for-the-hard-work-that-hunter-high-school-put-in-to-raising-m" target="_blank" rel="noopener noreferrer">
@@ -712,26 +722,26 @@
             <div class="receipt-body">
               <div class="receipt-kicker">Make-A-Wish Utah</div>
               <h3>Hunter High showed up for wish kids.</h3>
-              <p>A Make-A-Wish Utah Facebook post thanks Hunter High School for the work put into raising money, with school photos showing the $13,433 check.</p>
-              <span class="receipt-source">View Facebook post</span>
+              <p>A Make-A-Wish Utah post thanked Hunter High School for the work behind the fundraiser, and the student group photo shows the school-side team that helped make it happen.</p>
+              <span class="receipt-source">Read community post</span>
             </div>
           </a>
           <a class="receipt-card" href="https://www.facebook.com/makeawishutah/posts/hunter-high-school-hosted-a-fundraiser-for-make-a-wish-utah-raising-over-12000-a/10160348707154292/" target="_blank" rel="noopener noreferrer">
             <img src="assets/wish-week-check-12000.jpg" alt="Family and Spider-Man characters beside a Hunter High School Make-A-Wish check" />
             <div class="receipt-body">
               <div class="receipt-kicker">Second fundraiser</div>
-              <h3>Another five-figure push.</h3>
-              <p>Make-A-Wish Utah documented Hunter High School hosting a fundraiser that raised over $12,000.</p>
-              <span class="receipt-source">View Facebook post</span>
+              <h3>A second year of showing up.</h3>
+              <p>Another Make-A-Wish Utah post shares Hunter High hosting a fundraiser that raised over $12,000, with the event centered around a wish family and school community support.</p>
+              <span class="receipt-source">Read community post</span>
             </div>
           </a>
           <a class="receipt-card" href="https://www.facebook.com/makeawishutah/posts/hunter-high-school-hosted-a-fundraiser-for-make-a-wish-utah-raising-over-12000-a/10160348707154292/" target="_blank" rel="noopener noreferrer">
             <img src="assets/wish-week-group.jpg" alt="Hunter High School student group photo with a Make-A-Wish family and Spider-Man characters" />
             <div class="receipt-body">
               <div class="receipt-kicker">Student leadership</div>
-              <h3>Fundraising is coordination.</h3>
-              <p>Events like this take people, schedules, messaging, trust, and follow-through.</p>
-              <span class="receipt-source">View Facebook post</span>
+              <h3>Students, families, and a whole gym.</h3>
+              <p>Behind the check was a packed school event, student leadership, and a community willing to get behind one family's wish.</p>
+              <span class="receipt-source">Read community post</span>
             </div>
           </a>
         </div>
@@ -743,9 +753,9 @@
         <div class="section-head">
           <div>
             <div class="section-label">Where to help</div>
-            <h2>Direct links, real causes.</h2>
+            <h2>Give straight to the orgs.</h2>
           </div>
-          <p class="section-intro">These buttons go straight to the organizations. No middleman, no weird funnel, just the official pages.</p>
+          <p class="section-intro">The donation buttons go to official organization pages so giving stays simple, clean, and handled by the people doing the work every day.</p>
         </div>
         <div class="cause-grid">
           <article class="cause-card">
@@ -758,11 +768,11 @@
             <ul class="cause-meta" aria-label="Make-A-Wish connection">
               <li>Five-figure drives</li>
               <li>Student leadership</li>
-              <li>Facebook proof links</li>
+              <li>Community posts</li>
             </ul>
             <div class="actions">
               <a class="button button-primary" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer">Donate to Make-A-Wish Utah</a>
-              <a class="button button-dark" href="#receipts">See proof</a>
+              <a class="button button-dark" href="#moments">See moments</a>
             </div>
           </article>
           <article class="cause-card">
@@ -794,7 +804,7 @@
             <div class="section-label">Hands-on service</div>
             <h2>Service happened in rooms like this.</h2>
           </div>
-          <p class="section-intro">The photos matter because they show the actual shape of the work: getting people together, setting up supplies, making things, serving food, and leaving the place better than it started.</p>
+          <p class="section-intro">Service is usually simple in the moment: get people together, set up supplies, make something useful, feed people, clean up, and leave the place better than it started.</p>
         </div>
         <div class="service-grid">
           <article class="service-card is-wide">
@@ -837,11 +847,11 @@
               <img src="assets/logo-make-a-wish-utah.png" alt="Make-A-Wish Utah logo" />
             </div>
             <div class="section-label">Official pages</div>
-            <h3>Use the real donation pages.</h3>
-            <p>Donation links should go straight to the organizations. That keeps the money path clean, gives supporters official receipts, and avoids turning a portfolio into a middleman.</p>
+            <h3>Use the official donation pages.</h3>
+            <p>Donation links should go straight to the organizations. That keeps giving simple, official, and receipt-friendly.</p>
             <ul class="cause-meta" aria-label="Official donation links">
               <li>Official pages</li>
-              <li>No middleman</li>
+              <li>Gift confirmations</li>
               <li>Direct giving</li>
             </ul>
             <div class="actions">
@@ -874,14 +884,14 @@
       <div class="wrap promise-grid">
         <div>
           <div class="section-label">How I help</div>
-          <h2>Service, but with follow-through.</h2>
-          <p class="promise-copy">I am not an official charity representative, and this page is not pretending to be one. It is a clean place to send people when they ask what I care about and where they can help.</p>
-          <p class="official-note">For donation receipts, tax details, recurring gifts, employer matches, or campaign-specific questions, use the official pages linked above. Organization logos are used here only to identify the official donation links.</p>
+          <h2>Service feels better when it is shared.</h2>
+          <p class="promise-copy">This page is a personal note about causes I have worked around before. It is here to honor the people who showed up and to point visitors toward official ways to help.</p>
+          <p class="official-note">For gift confirmations, tax details, recurring gifts, employer matches, or campaign-specific questions, use the official pages linked above. Organization logos are included only to identify and link to those official pages.</p>
         </div>
         <ul class="promise-list">
-          <li><strong>Rally people clearly.</strong> Good fundraising works when the ask is simple, the goal is visible, and people understand where the money goes.</li>
-          <li><strong>Connect service to execution.</strong> Planning, communication, supply runs, events, and follow-up matter as much as the headline number.</li>
-          <li><strong>Keep it direct.</strong> Donations should go to official organization pages so supporters know exactly who is receiving the gift.</li>
+          <li><strong>Make room for people.</strong> Good service gives people a clear way to help, whether they can donate, cook, tie a quilt, clean a park, or simply show up.</li>
+          <li><strong>Do the simple work well.</strong> Planning, communication, supplies, setup, cleanup, and thank-yous matter as much as the headline number.</li>
+          <li><strong>Keep giving direct.</strong> Donations should go to official organization pages so supporters know exactly who is receiving the gift.</li>
         </ul>
       </div>
     </section>
