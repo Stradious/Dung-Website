@@ -688,6 +688,26 @@
     .project-card:hover { transform: translateY(-4px); border-color: rgba(255,54,88,.55); }
     .project-card .project-copy { max-width: 500px; }
 
+    .media-project-card { padding: 0; overflow: hidden; }
+    .media-hero, .media-hero img { display: block; width: 100%; }
+    .media-hero { background: #0b0b0c; }
+    .media-hero img { height: 300px; object-fit: cover; }
+    .media-project-body { padding: clamp(1.6rem, 4vw, 2.5rem); }
+    .media-thumbs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; margin-top: 1.3rem; }
+    .media-thumbs a { display: block; min-width: 0; background: #0b0b0c; }
+    .media-thumbs img { display: block; width: 100%; height: 94px; object-fit: cover; }
+    .media-hero:focus-visible, .media-thumbs a:focus-visible { outline: 2px solid var(--red-bright); outline-offset: 2px; }
+    .project-video { margin-top: 1.3rem; border-top: 1px solid rgba(255,255,255,.16); padding-top: 1rem; }
+    .project-video summary { width: fit-content; cursor: pointer; color: var(--white); font-size: .8rem; font-weight: 750; }
+    .project-video summary:hover { color: var(--red-bright); }
+    .project-video video { display: block; width: 100%; max-height: 440px; margin-top: 1rem; background: #0b0b0c; }
+    .lab-media { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: center; margin-top: 1.25rem; padding: 1.25rem; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.035); }
+    .lab-media-images { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; }
+    .lab-media-images a { min-width: 0; }
+    .lab-media-images img { display: block; width: 100%; height: 250px; object-fit: cover; }
+    .lab-media-copy { padding: 1rem; }
+    .lab-media-copy h3 { font-size: clamp(1.55rem, 3vw, 2.3rem); }
+
     .award {
       margin-top: 1.25rem;
       color: #f4c95d;
@@ -981,6 +1001,7 @@
       .featured-project { min-height: 0; }
       .project-visual { min-height: 340px; }
       .project-gallery { grid-template-rows: auto auto; }
+      .lab-media { grid-template-columns: 1fr; }
       .contact-grid { align-items: start; }
     }
 
@@ -1029,7 +1050,9 @@
       .community-row { grid-template-columns: 1fr; gap: .5rem; }
       .timeline-item { grid-template-columns: 1fr; gap: .4rem; }
       .credential-list { grid-template-columns: 1fr; }
-      .credential-list { grid-template-columns: 1fr; }
+      .media-hero img { height: 260px; }
+      .media-thumbs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lab-media-images img { height: 190px; }
       .credential-card { grid-template-columns: auto 1fr; }
       .credential-arrow { display: none; }
       .portrait-note {
@@ -1236,17 +1259,63 @@
         </article>
 
         <div class="project-grid">
-          <article class="project-card">
-            <div class="project-tag">Robotics · Autonomous systems</div>
-            <h3>NASA Lunabotics Moon Rover</h3>
-            <p class="project-copy">Mechanical subteam member supporting design reviews, assembly, and testing of the University of Utah's lunar mining rover for NASA Lunabotics at Kennedy Space Center.</p>
+          <article class="project-card media-project-card">
+            <a class="media-hero" href="assets/lunabotics-rover-overhead.webp" target="_blank" rel="noopener noreferrer" aria-label="Open overhead photo of the Lunabotics rover">
+              <img src="assets/lunabotics-rover-overhead.webp" alt="Overhead view of a four-wheeled lunar mining rover prototype on a workbench" loading="lazy" />
+            </a>
+            <div class="media-project-body">
+              <div class="project-tag">Robotics · Autonomous systems</div>
+              <h3>NASA Lunabotics Moon Rover</h3>
+              <p class="project-copy">Mechanical subteam member supporting design reviews, assembly, and testing of the University of Utah's lunar mining rover for NASA Lunabotics at Kennedy Space Center.</p>
+              <div class="media-thumbs" aria-label="Lunabotics rover build photos">
+                <a href="assets/lunabotics-rover-front.webp" target="_blank" rel="noopener noreferrer" aria-label="Open front view of the rover"><img src="assets/lunabotics-rover-front.webp" alt="Front view of the rover in the machine shop" loading="lazy" /></a>
+                <a href="assets/lunabotics-rover-front-detail.webp" target="_blank" rel="noopener noreferrer" aria-label="Open rover front detail"><img src="assets/lunabotics-rover-front-detail.webp" alt="Closer front view of the rover chassis and wheels" loading="lazy" /></a>
+                <a href="assets/lunabotics-rover-wheel.webp" target="_blank" rel="noopener noreferrer" aria-label="Open rover wheel detail"><img src="assets/lunabotics-rover-wheel.webp" alt="Close-up of the rover's traction wheel and frame" loading="lazy" /></a>
+                <a href="assets/lunabotics-rover-earlier-build.webp" target="_blank" rel="noopener noreferrer" aria-label="Open earlier rover build photo"><img src="assets/lunabotics-rover-earlier-build.webp" alt="Earlier rover build with exposed drive chains and wheels" loading="lazy" /></a>
+              </div>
+            </div>
           </article>
-          <article class="project-card">
-            <div class="project-tag">MATLAB · Arduino · Embedded systems</div>
-            <h3>Autonomous Precision Launcher</h3>
-            <p class="project-copy">Contributed CAD packaging and mounting updates, assembly, functional validation, and troubleshooting for a mechatronic launcher with motors, servos, sensors, and targeting logic.</p>
-            <div class="award">2nd Place · ME-EN 1010 Final Competition</div>
+          <article class="project-card media-project-card">
+            <a class="media-hero" href="assets/launcher-mechanism.webp" target="_blank" rel="noopener noreferrer" aria-label="Open precision launcher mechanism photo">
+              <img src="assets/launcher-mechanism.webp" alt="Close-up of the blue launcher mechanism holding a row of balls" loading="lazy" />
+            </a>
+            <div class="media-project-body">
+              <div class="project-tag">MATLAB · Arduino · Embedded systems</div>
+              <h3>Autonomous Precision Launcher</h3>
+              <p class="project-copy">Contributed CAD packaging and mounting updates, assembly, functional validation, and troubleshooting for a mechatronic launcher with motors, servos, sensors, and targeting logic.</p>
+              <div class="award">2nd Place · ME-EN 1010 Final Competition</div>
+              <div class="media-thumbs" aria-label="Launcher project photos">
+                <a href="assets/launcher-team.webp" target="_blank" rel="noopener noreferrer" aria-label="Open launcher team photo"><img src="assets/launcher-team.webp" alt="Three teammates standing with the precision launcher in the lab" loading="lazy" /></a>
+                <a href="assets/launcher-arduino-code.webp" target="_blank" rel="noopener noreferrer" aria-label="Open Arduino code photo"><img src="assets/launcher-arduino-code.webp" alt="Arduino code for the launcher displayed on a laptop" loading="lazy" /></a>
+                <a href="assets/launcher-matlab-code.webp" target="_blank" rel="noopener noreferrer" aria-label="Open MATLAB code photo"><img src="assets/launcher-matlab-code.webp" alt="MATLAB target calculations for the launcher displayed on a laptop" loading="lazy" /></a>
+              </div>
+              <details class="project-video">
+                <summary>Watch the launcher at the lab · 59 sec</summary>
+                <video controls preload="none" playsinline poster="assets/launcher-team-test-poster.webp" aria-label="Video of the launcher project at the lab">
+                  <source src="assets/launcher-team-test.mp4" type="video/mp4" />
+                  Your browser does not support embedded video.
+                </video>
+              </details>
+            </div>
           </article>
+        </div>
+        <div class="lab-media">
+          <div class="lab-media-images" aria-label="Engineering workbench photos">
+            <a href="assets/electronics-bench.webp" target="_blank" rel="noopener noreferrer" aria-label="Open electronics bench photo"><img src="assets/electronics-bench.webp" alt="Circuit boards arranged around a microscope on an electronics bench" loading="lazy" /></a>
+            <a href="assets/electronics-workspace.webp" target="_blank" rel="noopener noreferrer" aria-label="Open electronics workspace photo"><img src="assets/electronics-workspace.webp" alt="Microscopes, tools, and parts storage at an electronics workspace" loading="lazy" /></a>
+          </div>
+          <div class="lab-media-copy">
+            <div class="project-tag">Process · Prototyping · Workshop</div>
+            <h3>Inside the lab.</h3>
+            <p class="project-copy">Snapshots from electronics and fabrication spaces: the benches, tools, and machines behind hands-on engineering work.</p>
+            <details class="project-video">
+              <summary>Watch a waterjet shop clip · 12 sec</summary>
+              <video controls preload="none" playsinline poster="assets/engineering-shop-poster.webp" aria-label="Video of waterjet equipment in a fabrication shop">
+                <source src="assets/engineering-shop-tour.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+            </details>
+          </div>
         </div>
       </div>
     </section>
