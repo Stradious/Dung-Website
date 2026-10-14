@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Community impact and official donation links connected to Dung Ho's Make-A-Wish Utah fundraising and Ronald McDonald House service experience." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>Community Impact | Dung Ho</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --ink: #0b0b0c;
+      --paper: #f4f2ed;
+      --white: #fff;
+      --muted: #706f6b;
+      --line: #dcd8d0;
+      --red: #c8102e;
+      --red-bright: #ff3658;
+      --gold: #f4c95d;
+      --wish-blue: #0072ce;
+      --wish-blue-dark: #004b8d;
+      --wish-blue-soft: #eaf5ff;
+      --max: 1180px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    .wrap {
+      width: min(calc(100% - 2.5rem), var(--max));
+      margin-inline: auto;
+    }
+
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      background: rgba(11,11,12,.86);
+      color: var(--white);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      font-size: .88rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(1rem, 3vw, 2rem);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,.68);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--white); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 9rem 0 5.5rem;
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 44rem;
+      aspect-ratio: 1;
+      right: -22rem;
+      top: -16rem;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 50%;
+      box-shadow: 0 0 0 6rem rgba(255,255,255,.018), 0 0 0 12rem rgba(255,255,255,.012);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(116deg, transparent 0 56%, rgba(0,114,206,.24) 56% 56.42%, transparent 56.42% 100%),
+        linear-gradient(116deg, transparent 0 58%, rgba(200,16,46,.18) 58% 58.32%, transparent 58.32% 100%),
+        linear-gradient(116deg, transparent 0 63%, rgba(244,201,93,.2) 63% 63.18%, transparent 63.18% 100%),
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size: auto, auto, 64px 64px, 64px 64px;
+      mask-image: linear-gradient(90deg, transparent, #000 18%, #000 100%);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(3rem, 7vw, 7rem);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: 0 0 1.2rem;
+      color: #70b8ff;
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 2px;
+      background: currentColor;
+      content: "";
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 1.35rem;
+      font-size: clamp(3.4rem, 8vw, 7rem);
+      font-weight: 850;
+      letter-spacing: -.065em;
+      line-height: .88;
+    }
+
+    h1 span { color: #70b8ff; }
+
+    .hero-copy {
+      max-width: 670px;
+      margin-bottom: 1.6rem;
+      color: rgba(255,255,255,.68);
+      font-size: clamp(1rem, 2vw, 1.17rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: .75rem 1.35rem;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      font-size: .82rem;
+      font-weight: 850;
+      letter-spacing: .035em;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: var(--white); background: var(--wish-blue); }
+    .button-primary:hover { background: var(--wish-blue-dark); }
+    .button-dark { color: var(--white); background: var(--ink); }
+    .button-ghost { color: var(--white); border-color: rgba(255,255,255,.3); }
+    .button-ghost:hover { border-color: var(--white); }
+
+    .disclaimer {
+      max-width: 610px;
+      margin: 1.15rem 0 0;
+      color: rgba(255,255,255,.54);
+      font-size: .82rem;
+    }
+
+    .partner-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 1.25rem;
+    }
+
+    .partner-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: min(260px, 100%);
+      min-height: 78px;
+      padding: .9rem 1rem;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      text-decoration: none;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .partner-logo:hover {
+      transform: translateY(-2px);
+      border-color: rgba(112,184,255,.74);
+    }
+
+    .partner-logo.is-rmhc {
+      background: var(--white);
+    }
+
+    .partner-logo img {
+      max-width: 100%;
+      max-height: 58px;
+      object-fit: contain;
+    }
+
+    .impact-visual {
+      position: relative;
+      padding: clamp(.85rem, 2vw, 1.25rem);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.045);
+      box-shadow: 0 28px 70px rgba(0,0,0,.3);
+    }
+
+    .impact-visual::before {
+      position: absolute;
+      inset: -14px 14px 14px -14px;
+      z-index: -1;
+      border: 1px solid rgba(255,54,88,.65);
+      content: "";
+    }
+
+    .impact-visual::after {
+      position: absolute;
+      right: -18px;
+      bottom: -12px;
+      width: 118px;
+      height: 8px;
+      background: linear-gradient(90deg, var(--red) 0 58%, var(--gold) 58% 76%, var(--white) 76% 100%);
+      content: "";
+    }
+
+    .impact-visual img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center 22%;
+      border: 1px solid rgba(255,255,255,.12);
+      filter: saturate(.92) contrast(1.04);
+    }
+
+    .visual-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-left: 1px solid rgba(255,255,255,.14);
+      border-top: 1px solid rgba(255,255,255,.14);
+      background: #111113;
+    }
+
+    .visual-stat {
+      min-height: 136px;
+      padding: 1.15rem;
+      border-right: 1px solid rgba(255,255,255,.14);
+      border-bottom: 1px solid rgba(255,255,255,.14);
+    }
+
+    .visual-value {
+      margin-bottom: .35rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 850;
+      letter-spacing: -.06em;
+      line-height: 1;
+    }
+
+    .visual-value span { color: #70b8ff; }
+    .visual-stat p { margin: 0; color: rgba(255,255,255,.62); font-size: .8rem; line-height: 1.42; }
+
+    section { padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      margin-bottom: .65rem;
+      color: var(--red);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(2.3rem, 5vw, 4.25rem);
+      letter-spacing: -.055em;
+      line-height: .98;
+    }
+
+    .section-intro {
+      max-width: 540px;
+      margin: 0 0 .4rem auto;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .receipts {
+      background:
+        linear-gradient(135deg, rgba(0,114,206,.09), transparent 38%),
+        var(--paper);
+    }
+
+    .receipt-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 1rem;
+    }
+
+    .receipt-card {
+      display: grid;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      color: inherit;
+      background: var(--white);
+      text-decoration: none;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .receipt-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--wish-blue);
+    }
+
+    .receipt-card.is-wide {
+      grid-row: span 2;
+    }
+
+    .receipt-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 230px;
+      object-fit: cover;
+    }
+
+    .receipt-card.is-wide img {
+      min-height: 390px;
+      object-position: center;
+    }
+
+    .receipt-body {
+      padding: 1.2rem;
+    }
+
+    .receipt-kicker {
+      margin-bottom: .45rem;
+      color: var(--wish-blue);
+      font-size: .68rem;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .receipt-body h3 {
+      margin-bottom: .5rem;
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+      letter-spacing: -.045em;
+      line-height: 1.05;
+    }
+
+    .receipt-body p {
+      margin-bottom: .9rem;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .receipt-source {
+      color: var(--wish-blue-dark);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .causes {
+      background:
+        linear-gradient(180deg, var(--white), #f9fcff);
+    }
+
+    .cause-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .cause-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 430px;
+      padding: clamp(1.6rem, 4vw, 2.5rem);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(0,114,206,.08), transparent 42%),
+        var(--paper);
+    }
+
+    .cause-card::before {
+      content: "";
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 78px;
+      height: 7px;
+      background: linear-gradient(90deg, var(--wish-blue) 0 48%, var(--red) 48% 70%, var(--gold) 70% 86%, var(--ink) 86% 100%);
+    }
+
+    .cause-brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: min(310px, 100%);
+      min-height: 86px;
+      margin-bottom: 1.35rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line);
+      background: var(--ink);
+    }
+
+    .cause-brand.is-rmhc {
+      background: var(--white);
+    }
+
+    .cause-brand img {
+      max-width: 100%;
+      max-height: 64px;
+      object-fit: contain;
+    }
+
+    .cause-card h3 {
+      max-width: 520px;
+      margin-bottom: .85rem;
+      font-size: clamp(1.9rem, 4vw, 3.1rem);
+      letter-spacing: -.05em;
+      line-height: .98;
+    }
+
+    .cause-card p { color: var(--muted); }
+
+    .cause-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin: 1.25rem 0 1.5rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .cause-meta li {
+      padding: .46rem .68rem;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: rgba(234,245,255,.72);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .service {
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(0,114,206,.26), transparent 36%),
+        var(--ink);
+    }
+
+    .service .section-label { color: #70b8ff; }
+    .service .section-intro { color: rgba(255,255,255,.66); }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .service-card {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.045);
+    }
+
+    .service-card.is-wide { grid-column: span 2; }
+
+    .service-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      filter: saturate(.92) contrast(1.04);
+    }
+
+    .service-card-body {
+      padding: 1rem;
+    }
+
+    .service-card h3 {
+      margin-bottom: .45rem;
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      letter-spacing: -.035em;
+      line-height: 1.08;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: rgba(255,255,255,.64);
+      font-size: .84rem;
+      line-height: 1.45;
+    }
+
+    .promise {
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(244,201,93,.16), transparent 32%),
+        linear-gradient(118deg, transparent 0 70%, rgba(200,16,46,.28) 70% 70.5%, transparent 70.5% 100%),
+        var(--wish-blue-dark);
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: start;
+    }
+
+    .promise .section-label { color: rgba(255,255,255,.72); }
+
+    .promise-copy {
+      margin: 1.2rem 0 0;
+      color: rgba(255,255,255,.74);
+      font-size: 1rem;
+    }
+
+    .promise-list {
+      display: grid;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .promise-list li {
+      padding: 1.15rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.22);
+      color: rgba(255,255,255,.76);
+    }
+
+    .promise-list strong {
+      display: block;
+      margin-bottom: .25rem;
+      color: var(--white);
+    }
+
+    .official-note {
+      padding: 1.2rem;
+      border: 1px solid rgba(255,255,255,.26);
+      color: rgba(255,255,255,.72);
+      background: rgba(11,11,12,.18);
+      font-size: .9rem;
+    }
+
+    footer {
+      padding: 1.35rem 0;
+      color: rgba(255,255,255,.42);
+      background: var(--ink);
+      font-size: .72rem;
+      text-align: center;
+    }
+
+    footer a { color: rgba(255,255,255,.72); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    @media (max-width: 850px) {
+      .hero-grid, .section-head, .receipt-grid, .cause-grid, .promise-grid { grid-template-columns: 1fr; }
+      .section-intro { margin-left: 0; }
+      .impact-visual { max-width: 580px; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .service-card.is-wide { grid-column: span 1; }
+    }
+
+    @media (max-width: 600px) {
+      .wrap {
+        width: calc(100% - 1.5rem);
+        max-width: var(--max);
+      }
+
+      .nav-inner { min-width: 0; gap: .75rem; }
+      .nav-links { gap: .85rem; }
+      .nav-links li:nth-child(2), .nav-links li:nth-child(3) { display: none; }
+      .hero { padding-top: 7.5rem; }
+      .eyebrow {
+        display: block;
+        padding-left: 2rem;
+        line-height: 1.35;
+      }
+
+      .eyebrow::before {
+        position: absolute;
+        margin: .55rem 0 0 -2rem;
+      }
+
+      .visual-stats { grid-template-columns: 1fr; }
+      .receipt-card.is-wide { grid-row: auto; }
+      .receipt-card.is-wide img { min-height: 260px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .cause-card { min-height: 0; }
+      .cause-card::before { width: 56px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Primary navigation">
+    <div class="wrap nav-inner">
+      <a class="logo" href="index.html">Dung Ho</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Portfolio</a></li>
+        <li><a href="#donate">Donate</a></li>
+        <li><a href="#promise">How I Help</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Community impact</p>
+          <h1>People show up. <span>Wishes get closer.</span></h1>
+          <p class="hero-copy">Some of the best work I have been part of happened with a whole school or volunteer room pulling in the same direction. Through student-government leadership, I helped support school-wide Make-A-Wish efforts that cleared five figures twice, including totals above $12,000 and $13,433.</p>
+          <p class="hero-copy">My Eagle Scout project and other volunteer work also included park service, quilt tying, and food support connected to Ronald McDonald House programs near Primary Children's Hospital.</p>
+          <p class="hero-copy">This page keeps those efforts connected to official places to give, with photos and posts that show the community behind them.</p>
+          <div class="actions">
+            <a class="button button-primary" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer">Donate to Make-A-Wish Utah</a>
+            <a class="button button-ghost" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer">Donate to RMHC Mountain West</a>
+          </div>
+          <div class="partner-logos" aria-label="Official organization links">
+            <a class="partner-logo" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer" aria-label="Make-A-Wish Utah official site">
+              <img src="assets/logo-make-a-wish-utah.png" alt="Make-A-Wish Utah logo" />
+            </a>
+            <a class="partner-logo is-rmhc" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer" aria-label="Ronald McDonald House Charities Mountain West official giving page">
+              <img src="assets/logo-rmhc-mountain-west.png" alt="Ronald McDonald House Charities Mountain West logo" />
+            </a>
+          </div>
+          <p class="disclaimer">Donation buttons and logos link to official charity pages. This personal portfolio page does not collect, process, or hold donations.</p>
+        </div>
+        <aside class="impact-visual" aria-label="Impact highlights">
+          <img src="assets/wish-week-check-13433.jpg" alt="Hunter High School student leaders holding a Make-A-Wish Utah check for 13,433 dollars" />
+          <div class="visual-stats">
+            <div class="visual-stat">
+              <div class="visual-value">$13.4<span>K</span></div>
+              <p>Make-A-Wish Utah check photo from Hunter High School.</p>
+            </div>
+            <div class="visual-stat">
+              <div class="visual-value">$12<span>K+</span></div>
+              <p>Additional Make-A-Wish Utah post documenting another fundraiser.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="receipts" id="moments">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Community moments</div>
+            <h2>The community showed up.</h2>
+          </div>
+          <p class="section-intro">The numbers matter, but the better part is seeing students, families, volunteers, and a whole school choose to care about the same thing for a while.</p>
+        </div>
+        <div class="receipt-grid">
+          <a class="receipt-card is-wide" href="https://www.facebook.com/photo/?fbid=10159885149044292&amp;set=we-are-so-thankful-for-the-hard-work-that-hunter-high-school-put-in-to-raising-m" target="_blank" rel="noopener noreferrer">
+            <img src="assets/wish-week-check-13433.jpg" alt="Hunter High School students holding a Make-A-Wish Utah check for 13,433 dollars" />
+            <div class="receipt-body">
+              <div class="receipt-kicker">Make-A-Wish Utah</div>
+              <h3>Hunter High showed up for wish kids.</h3>
+              <p>A Make-A-Wish Utah post thanked Hunter High School for the work behind the fundraiser, and the student group photo shows the school-side team that helped make it happen.</p>
+              <span class="receipt-source">Read community post</span>
+            </div>
+          </a>
+          <a class="receipt-card" href="https://www.facebook.com/makeawishutah/posts/hunter-high-school-hosted-a-fundraiser-for-make-a-wish-utah-raising-over-12000-a/10160348707154292/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/wish-week-check-12000.jpg" alt="Family and Spider-Man characters beside a Hunter High School Make-A-Wish check" />
+            <div class="receipt-body">
+              <div class="receipt-kicker">Second fundraiser</div>
+              <h3>A second year of showing up.</h3>
+              <p>Another Make-A-Wish Utah post shares Hunter High hosting a fundraiser that raised over $12,000, with the event centered around a wish family and school community support.</p>
+              <span class="receipt-source">Read community post</span>
+            </div>
+          </a>
+          <a class="receipt-card" href="https://www.facebook.com/makeawishutah/posts/hunter-high-school-hosted-a-fundraiser-for-make-a-wish-utah-raising-over-12000-a/10160348707154292/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/wish-week-group.jpg" alt="Hunter High School student group photo with a Make-A-Wish family and Spider-Man characters" />
+            <div class="receipt-body">
+              <div class="receipt-kicker">Student leadership</div>
+              <h3>Students, families, and a whole gym.</h3>
+              <p>Behind the check was a packed school event, student leadership, and a community willing to get behind one family's wish.</p>
+              <span class="receipt-source">Read community post</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="causes" id="donate">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Where to help</div>
+            <h2>Give straight to the orgs.</h2>
+          </div>
+          <p class="section-intro">The donation buttons go to official organization pages so giving stays simple, clean, and handled by the people doing the work every day.</p>
+        </div>
+        <div class="cause-grid">
+          <article class="cause-card">
+            <a class="cause-brand" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer" aria-label="Make-A-Wish Utah official site">
+              <img src="assets/logo-make-a-wish-utah.png" alt="Make-A-Wish Utah logo" />
+            </a>
+            <div class="section-label">Make-A-Wish Utah</div>
+            <h3>Wishes need people who can rally.</h3>
+            <p>In student-government president and vice-president roles, I helped organize school-wide fundraising for Make-A-Wish. The school cleared five figures twice, with Make-A-Wish Utah posts and photos supporting totals above $12,000 and $13,433.</p>
+            <ul class="cause-meta" aria-label="Make-A-Wish connection">
+              <li>Five-figure drives</li>
+              <li>Student leadership</li>
+              <li>Community posts</li>
+            </ul>
+            <div class="actions">
+              <a class="button button-primary" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer">Donate to Make-A-Wish Utah</a>
+              <a class="button button-dark" href="#moments">See moments</a>
+            </div>
+          </article>
+          <article class="cause-card">
+            <a class="cause-brand is-rmhc" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer" aria-label="Ronald McDonald House Charities Mountain West official giving page">
+              <img src="assets/logo-rmhc-mountain-west.png" alt="Ronald McDonald House Charities Mountain West logo" />
+            </a>
+            <div class="section-label">Ronald McDonald House</div>
+            <h3>Families need practical help too.</h3>
+            <p>Through Eagle Scout service and other volunteer projects, I supported work around Ronald McDonald House families: park service, quilt-making help, and meal support near Primary Children's Hospital. That kind of service is practical: supplies, logistics, comfort, and showing up.</p>
+            <ul class="cause-meta" aria-label="Ronald McDonald House connection">
+              <li>Eagle Scout service</li>
+              <li>Quilt making</li>
+              <li>Meal support</li>
+              <li>Primary Children's</li>
+            </ul>
+            <div class="actions">
+              <a class="button button-primary" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer">Donate to RMHC Mountain West</a>
+              <a class="button button-dark" href="#service">See service photos</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="service" id="service">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Hands-on service</div>
+            <h2>Service happened in rooms like this.</h2>
+          </div>
+          <p class="section-intro">Service is usually simple in the moment: get people together, set up supplies, make something useful, feed people, clean up, and leave the place better than it started.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card is-wide">
+            <img src="assets/eagle-scout-park-cleanup.jpg" alt="Volunteers cleaning picnic tables at a park pavilion" />
+            <div class="service-card-body">
+              <h3>Eagle Scout project leadership</h3>
+              <p>Outdoor service work with volunteers, youth helpers, and a practical goal people could see by the end of the day.</p>
+            </div>
+          </article>
+          <article class="service-card is-wide">
+            <img src="assets/eagle-scout-quilt-tying.jpg" alt="Volunteers tying a handmade quilt inside a church room" />
+            <div class="service-card-body">
+              <h3>Quilt-making support</h3>
+              <p>Helped with volunteer quilt work: hands-on, repetitive, and exactly the kind of behind-the-scenes service families actually use.</p>
+            </div>
+          </article>
+          <article class="service-card is-wide">
+            <img src="assets/rmhc-meal-service.jpg" alt="Volunteers preparing food in a Ronald McDonald House kitchen space" />
+            <div class="service-card-body">
+              <h3>Meal support near care</h3>
+              <p>Food service support connected to Ronald McDonald House programs serving families near Primary Children's Hospital.</p>
+            </div>
+          </article>
+          <article class="service-card is-wide">
+            <img src="assets/rmhc-meal-supplies.jpg" alt="Bread and meal supplies prepared on a kitchen counter" />
+            <div class="service-card-body">
+              <h3>Small details count</h3>
+              <p>Meals are logistics, not just kindness: supplies, setup, cleanup, and enough food for the people walking in.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="causes" id="official">
+      <div class="wrap">
+        <div class="cause-grid">
+          <article class="cause-card">
+            <div class="cause-brand">
+              <img src="assets/logo-make-a-wish-utah.png" alt="Make-A-Wish Utah logo" />
+            </div>
+            <div class="section-label">Official pages</div>
+            <h3>Use the official donation pages.</h3>
+            <p>Donation links should go straight to the organizations. That keeps giving simple, official, and receipt-friendly.</p>
+            <ul class="cause-meta" aria-label="Official donation links">
+              <li>Official pages</li>
+              <li>Gift confirmations</li>
+              <li>Direct giving</li>
+            </ul>
+            <div class="actions">
+              <a class="button button-primary" href="https://wish.org/utah" target="_blank" rel="noopener noreferrer">Make-A-Wish Utah</a>
+              <a class="button button-dark" href="https://ronaldmcdonaldhousemountainwest.org/give/" target="_blank" rel="noopener noreferrer">RMHC Mountain West</a>
+            </div>
+          </article>
+          <article class="cause-card">
+            <div class="cause-brand is-rmhc">
+              <img src="assets/logo-rmhc-mountain-west.png" alt="Ronald McDonald House Charities Mountain West logo" />
+            </div>
+            <div class="section-label">Other volunteering</div>
+            <h3>Helping also means joining other people's work.</h3>
+            <p>Not every useful service project has my name on it. Some of the best work was joining other volunteers, doing the simple tasks well, and making sure the event or family-support effort actually got finished.</p>
+            <ul class="cause-meta" aria-label="Other volunteer work">
+              <li>Family support</li>
+              <li>Volunteer teams</li>
+              <li>Follow-through</li>
+            </ul>
+            <div class="actions">
+              <a class="button button-primary" href="index.html#contact">Contact me</a>
+              <a class="button button-dark" href="#service">See the work</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="promise" id="promise">
+      <div class="wrap promise-grid">
+        <div>
+          <div class="section-label">How I help</div>
+          <h2>Service feels better when it is shared.</h2>
+          <p class="promise-copy">This page is a personal note about causes I have worked around before. It is here to honor the people who showed up and to point visitors toward official ways to help.</p>
+          <p class="official-note">For gift confirmations, tax details, recurring gifts, employer matches, or campaign-specific questions, use the official pages linked above. Organization logos are included only to identify and link to those official pages.</p>
+        </div>
+        <ul class="promise-list">
+          <li><strong>Make room for people.</strong> Good service gives people a clear way to help, whether they can donate, cook, tie a quilt, clean a park, or simply show up.</li>
+          <li><strong>Do the simple work well.</strong> Planning, communication, supplies, setup, cleanup, and thank-yous matter as much as the headline number.</li>
+          <li><strong>Keep giving direct.</strong> Donations should go to official organization pages so supporters know exactly who is receiving the gift.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">&copy; 2026 Dung Ho &middot; dungtriho.com &middot; <a href="index.html">Portfolio</a> &middot; <a href="privacy.html">Privacy</a></div></footer>
+</body>
+</html>
