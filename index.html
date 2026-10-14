@@ -834,10 +834,12 @@
 
     .credential { background: var(--white); }
 
+    .credential-intro { max-width: 720px; margin: 1rem 0 0; color: var(--muted); }
+    .credential-group-title { margin: 2.2rem 0 .9rem; font-size: 1.05rem; }
     .credential-list {
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: .85rem;
-      max-width: 820px;
     }
 
     .credential-card {
@@ -845,7 +847,7 @@
       grid-template-columns: auto 1fr auto;
       gap: 1.25rem;
       align-items: center;
-      padding: 1.5rem;
+      padding: 1.15rem;
       border: 1px solid var(--line);
       text-decoration: none;
       transition: border-color .2s ease, transform .2s ease;
@@ -1026,6 +1028,8 @@
       .gallery-strip { grid-template-columns: repeat(2, 1fr); }
       .community-row { grid-template-columns: 1fr; gap: .5rem; }
       .timeline-item { grid-template-columns: 1fr; gap: .4rem; }
+      .credential-list { grid-template-columns: 1fr; }
+      .credential-list { grid-template-columns: 1fr; }
       .credential-card { grid-template-columns: auto 1fr; }
       .credential-arrow { display: none; }
       .portrait-note {
@@ -1305,45 +1309,203 @@
         <div class="section-head">
           <div>
             <div class="section-label">Credentials</div>
-            <h2>Learning the tools.</h2>
+            <h2>Engineering tools, put to work.</h2>
+            <p class="credential-intro">21 GoEngineer course completions in CAD design, simulation, manufacturing, and visualization. Completed June 2026.</p>
           </div>
         </div>
+        <h3 class="credential-group-title">CAD design and documentation</h3>
         <div class="credential-list">
-          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/xjngnptmqs" target="_blank" rel="noopener noreferrer">
-            <div class="credential-mark">S</div>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/yktqzc2oa1" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS Advanced Drawings certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
             <div>
               <div class="credential-issuer">GoEngineer</div>
-              <div class="credential-name">Simulation Standard Course</div>
-              <div class="credential-date">Issued June 2026 · Credential xjngnptmqs</div>
+              <div class="credential-name">SOLIDWORKS Advanced Drawings</div>
+              <div class="credential-date">Issued June 4, 2026</div>
             </div>
-            <div class="credential-arrow" aria-hidden="true">↗</div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
           </a>
-          <div class="credential-card">
-            <div class="credential-mark">C</div>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/eeotmujfni" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS Assembly Modeling certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
             <div>
-              <div class="credential-issuer">SOLIDWORKS</div>
-              <div class="credential-name">CSWA Certified</div>
-              <div class="credential-date">Certified SOLIDWORKS Associate signal listed on LinkedIn alongside 22 licenses and certifications</div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">SOLIDWORKS Assembly Modeling</div>
+              <div class="credential-date">Issued June 5, 2026</div>
             </div>
-            <div class="credential-arrow" aria-hidden="true">+</div>
-          </div>
-          <div class="credential-card">
-            <div class="credential-mark">M</div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/drc4ouaonh" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS Surface Modeling certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">SOLIDWORKS Surface Modeling</div>
+              <div class="credential-date">Issued June 8, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/v8ka823lla" target="_blank" rel="noopener noreferrer" aria-label="View Certified SOLIDWORKS Associate (CSWA) Prep Course certificate">
+            <div class="credential-mark" aria-hidden="true">C</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">Certified SOLIDWORKS Associate (CSWA) Prep Course</div>
+              <div class="credential-date">Issued June 9, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/q18e9btnk5" target="_blank" rel="noopener noreferrer" aria-label="View Mastering Parts &amp; Features certificate">
+            <div class="credential-mark" aria-hidden="true">M</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">Mastering Parts &amp; Features</div>
+              <div class="credential-date">Issued June 10, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/kens7evdly" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS Large Assemblies certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">SOLIDWORKS Large Assemblies</div>
+              <div class="credential-date">Issued June 10, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/pomyhuhjgq" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS Weldments certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">SOLIDWORKS Weldments</div>
+              <div class="credential-date">Issued June 11, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/5wvynccljm" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS MBD certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
             <div>
               <div class="credential-issuer">GoEngineer</div>
               <div class="credential-name">SOLIDWORKS MBD</div>
-              <div class="credential-date">Issued June 2026 · Model-based definition, PMI, tolerances, model views, and 3D PDFs</div>
+              <div class="credential-date">Issued June 11, 2026</div>
             </div>
-            <div class="credential-arrow" aria-hidden="true">22</div>
-          </div>
-          <div class="credential-card">
-            <div class="credential-mark">V</div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/utn3zx64nq" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS File Management certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">SOLIDWORKS File Management</div>
+              <div class="credential-date">Issued June 11, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <h3 class="credential-group-title">Simulation and visualization</h3>
+        <div class="credential-list">
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/xjngnptmqs" target="_blank" rel="noopener noreferrer" aria-label="View Simulation Standard Course certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">Simulation Standard Course</div>
+              <div class="credential-date">Issued June 9, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/7bcyi3thpf" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS Simulation Essentials certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">SOLIDWORKS Simulation Essentials</div>
+              <div class="credential-date">Issued June 10, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/ccyfyu2fs2" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS Simulation Advanced certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">SOLIDWORKS Simulation Advanced</div>
+              <div class="credential-date">Issued June 10, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/gsbwpab65t" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS Simulation Premium: Dynamics certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">SOLIDWORKS Simulation Premium: Dynamics</div>
+              <div class="credential-date">Issued June 10, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/o1rbjf2ygr" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS Plastics Essentials certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">SOLIDWORKS Plastics Essentials</div>
+              <div class="credential-date">Issued June 10, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/fo7urnpkf6" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS Visualize certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
             <div>
               <div class="credential-issuer">GoEngineer</div>
               <div class="credential-name">SOLIDWORKS Visualize</div>
-              <div class="credential-date">Issued June 2026 · CAD rendering, materials, lighting, cameras, and product visualization workflows</div>
+              <div class="credential-date">Issued June 11, 2026</div>
             </div>
-            <div class="credential-arrow" aria-hidden="true">+</div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <h3 class="credential-group-title">Manufacturing and specialized tools</h3>
+        <div class="credential-list">
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/wru9gxcaoh" target="_blank" rel="noopener noreferrer" aria-label="View SOLIDWORKS Sheet Metal certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">SOLIDWORKS Sheet Metal</div>
+              <div class="credential-date">Issued June 10, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/xlju80wqyw" target="_blank" rel="noopener noreferrer" aria-label="View Certified SOLIDWORKS Professional – Sheet Metal (CSWP-Sheet Metal) Prep Course certificate">
+            <div class="credential-mark" aria-hidden="true">C</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">Certified SOLIDWORKS Professional – Sheet Metal (CSWP-Sheet Metal) Prep Course</div>
+              <div class="credential-date">Issued June 10, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="credential-card" href="https://goengineer.thinkific.com/certificates/v0hlsi6jfy" target="_blank" rel="noopener noreferrer" aria-label="View Stratasys Insight User Training certificate">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">Stratasys Insight User Training</div>
+              <div class="credential-date">Issued June 11, 2026</div>
+            </div>
+            <span class="credential-arrow" aria-hidden="true">↗</span>
+          </a>
+          <div class="credential-card">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">SOLIDWORKS 3D Modeling for Machinists Training</div>
+              <div class="credential-date">Issued June 10, 2026 · Instructor-led training</div>
+            </div>
+          </div>
+          <div class="credential-card">
+            <div class="credential-mark" aria-hidden="true">S</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">SOLIDWORKS CAM Professional Training</div>
+              <div class="credential-date">Issued June 9, 2026 · Instructor-led training</div>
+            </div>
+          </div>
+          <div class="credential-card">
+            <div class="credential-mark" aria-hidden="true">C</div>
+            <div>
+              <div class="credential-issuer">GoEngineer</div>
+              <div class="credential-name">CATIA V5 Fundamentals Training</div>
+              <div class="credential-date">Issued June 10, 2026 · Instructor-led training</div>
+            </div>
           </div>
         </div>
       </div>
